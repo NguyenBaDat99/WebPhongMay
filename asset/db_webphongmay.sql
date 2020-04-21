@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2020 at 01:43 PM
+-- Generation Time: Apr 20, 2020 at 03:27 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_webphongmay`
 --
+CREATE DATABASE IF NOT EXISTS `db_webphongmay` DEFAULT CHARACTER SET utf8 COLLATE utf8_vietnamese_ci;
+USE `db_webphongmay`;
 
 DELIMITER $$
 --
@@ -56,7 +58,8 @@ INSERT INTO `nguoi_dung` (`MaNguoiDung`, `TenNguoiDung`, `MatKhau`, `LoaiNguoiDu
 (1, 'NguyenDat', 'Dat123', 'Admin'),
 (2, 'LeBac', '1234', 'User'),
 (3, 'VanThach', '12345', 'User'),
-(4, 'LeThanh', 'Thanh123', 'User');
+(4, 'LeThanh', 'Thanh123', 'User'),
+(5, 'CaoTan', 'Tan123', 'User');
 
 --
 -- Indexes for dumped tables
