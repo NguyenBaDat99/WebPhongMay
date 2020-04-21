@@ -12,7 +12,7 @@ class QLyPhongMay extends CI_Controller {
 
 	public function index()
 	{
-        $data['content'] = 'home/v_QLyPhongMay';
+        $data['content'] = 'home/PhongMay/v_QLyPhongMay';
 		$this->load->view('home/index', $data);
     }
 }

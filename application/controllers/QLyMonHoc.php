@@ -12,7 +12,7 @@ class QLyMonHoc extends CI_Controller {
 
 	public function index()
 	{
-        $data['content'] = 'home/v_QLyMonHoc';
+        $data['content'] = 'home/MonHoc/v_QLyMonHoc';
 		$this->load->view('home/index', $data);
     }
 }

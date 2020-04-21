@@ -17,7 +17,7 @@ class QLyNguoiDung extends CI_Controller {
         $this->load->view('home/header');
 
         $dsNguoiDung['dsNguoiDung'] = $this->m_NguoiDung->ds_nguoidung();
-        $view['content'] = $this->load->view('home/v_QLyNguoiDung', $dsNguoiDung);
+        $view['content'] = $this->load->view('home/NguoiDung/v_QLyNguoiDung', $dsNguoiDung);
 
         $this->load->view('home/footer');
 
@@ -33,7 +33,7 @@ class QLyNguoiDung extends CI_Controller {
         }
         else if($this->input->post('btnXoa') != '')
         {
-            
+
             $this->m_NguoiDung->xoa_nguoidung_id($MaDangNhap);
             $this->index();
         }
@@ -44,7 +44,7 @@ class QLyNguoiDung extends CI_Controller {
         $this->load->view('home/header');
 
         $data['NguoiDung'] = $this->m_NguoiDung->tim_nguoidung_id($maDangNhap);
-        $this->load->view('home/v_SuaNguoiDung', $data);
+        $this->load->view('home/NguoiDung/v_SuaNguoiDung', $data);
 
         $this->load->view('home/footer');
     }
@@ -53,7 +53,7 @@ class QLyNguoiDung extends CI_Controller {
     {
         $this->load->view('home/header');
 
-        $this->load->view('home/v_ThemNguoiDung');
+        $this->load->view('home/NguoiDung/v_ThemNguoiDung');
 
         $this->load->view('home/footer');
     }
@@ -158,7 +158,7 @@ class QLyNguoiDung extends CI_Controller {
             $this->load->view('home/header');
 
             $dsNguoiDung['dsNguoiDung'] = $this->m_NguoiDung->tim_nguoidung($thongTin);
-            $view['content'] = $this->load->view('home/v_TimNguoiDung', $dsNguoiDung);
+            $view['content'] = $this->load->view('home/NguoiDung/v_TimNguoiDung', $dsNguoiDung);
 
             $this->load->view('home/footer');
         }
