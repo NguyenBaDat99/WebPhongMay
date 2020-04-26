@@ -76,3 +76,77 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `phong_may`
+--
+
+CREATE TABLE `phong_may` (
+  `MaPhongMay` int(11) NOT NULL,
+  `TenPhongMay` varchar(30) COLLATE utf8_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `phong_may`
+--
+
+INSERT INTO `phong_may` (`MaPhongMay`, `TenPhongMay`) VALUES
+(1, 'PM01'),
+(2, 'PM02'),
+(3, 'PM03'),
+(4, 'PM04');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `phong_may`
+--
+ALTER TABLE `phong_may`
+  ADD PRIMARY KEY (`MaPhongMay`);
+COMMIT;
+
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `may_con`
+--
+
+CREATE TABLE `may_con` (
+  `MaMayCon` varchar(10) COLLATE utf8_vietnamese_ci NOT NULL,
+  `TinhTrang` varchar(20) COLLATE utf8_vietnamese_ci NOT NULL,
+  `MaPhongMay` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `may_con`
+--
+
+INSERT INTO `may_con` (`MaMayCon`, `TinhTrang`, `MaPhongMay`) VALUES
+('A1', 'Off', 1),
+('A2', 'Off', 1),
+('A3', 'Off', 1),
+('B1', 'Off', 2),
+('B2', 'Off', 2),
+('B3', 'Off', 2),
+('C1', 'Off', 3),
+('C2', 'Broken', 3),
+('C3', 'Off', 3),
+('D1', 'Off', 4),
+('D2', 'Off', 4),
+('D3', 'Off', 4);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `may_con`
+--
+ALTER TABLE `may_con`
+  ADD PRIMARY KEY (`MaMayCon`);
+COMMIT;
+
+
