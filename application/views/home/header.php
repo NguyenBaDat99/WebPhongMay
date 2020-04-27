@@ -11,7 +11,7 @@
 </head>
 <body>
   <nav class="navbar fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="http://localhost/WebPhongMay/index.php/QLyNguoiDung">Website Quản lý phòng máy</a>
+    <a class="navbar-brand" href="http://localhost/WebPhongMay/index.php/QLyPhongMay">Website Quản lý phòng máy</a>
     <!-- <a class="navbar-brand" >
     </a> -->
     <div class="dropdown">
