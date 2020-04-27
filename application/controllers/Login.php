@@ -9,6 +9,7 @@ class Login extends CI_Controller {
 		$this->load->Model("m_NguoiDung");
 		$this->load->library('session');
 		$this->load->helper('url');
+		$this->load->library('form_validation');
     }
 
 	public function index()
@@ -26,6 +27,11 @@ class Login extends CI_Controller {
 			$matKhau = $this->input->post('MatKhau');
 			$users = $this->m_NguoiDung->ds_nguoidung();
 
+			// $this->form_validation->set_rules('tenNguoiDung', 'Tên người dùng', 'required|min_length[6]');
+   //      	$this->form_validation->set_rules('matKhau', 'Mật khẩu', 'required|min_length[6]|max_length[25]');
+   //      	 if($this->form_validation->run() == FALSE){
+				
+   //      	}
 			foreach($users as $item)
 			{
 				if($item['TenNguoiDung'] == $tenNguoiDung && $item['MatKhau'] == $matKhau)
@@ -44,7 +50,7 @@ class Login extends CI_Controller {
 					$data['content'] = 'home/PhongMay/v_QLyPhongMay';
 					$this->load->view('home/index', $data);
 					//redirect('/QLyPhongMay');
-					// return;
+					return;
 				}	
 			}
 			
@@ -53,6 +59,15 @@ class Login extends CI_Controller {
 			// $this->load->view('login/index', $data);
 		}
 	}
+
+	 public function logout()
+    {
+         $this->session->sess_destroy();
+   		 $this->session->unset_userdata('nguoidungmoi');
+    	echo "<script>alert('Logged out successfully..!!');window.location='http://localhost/WebPhongMay/index.php'</script>";
+    }
+
+
 
     
 }
