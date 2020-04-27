@@ -154,10 +154,21 @@ class QLyNguoiDung extends CI_Controller {
 
                 //Các lỗi đã được xử => Sửa thông tin người dùng
                 $this->m_NguoiDung->sua_nguoidung($maNguoiDung, $tenNguoiDung, $matKhau, $loaiNguoiDung);
-                $this->index();
+                // $this->index();
+                if($this->session->userdata['LoaiNguoiDung'] == "Admin")
+                {
+                    $this->index();
+                }
+                else
+                {
+                    $data['content'] = 'home/PhongMay/v_QLyPhongMay';
+                    $this->load->view('home/index', $data);
+                    //redirect('/QLyPhongMay');
+                }
             }
-            else{
-                $this->load_suaNguoiDung($maNguoiDung);
+            else
+            {
+                    $this->load_suaNguoiDung($maNguoiDung);
             }
 
         }
