@@ -97,7 +97,8 @@ class QLyNguoiDung extends CI_Controller {
             else{
                 // $this->form_validation->set_message('Ten dang nhap', 'Invalid username or password');
 			    // return;
-                redirect('/QLyNguoiDung/Load_themNguoiDung');
+                // redirect('/QLyNguoiDung/Load_themNguoiDung');
+                $this->load_themNguoiDung();
             }
 
         }
