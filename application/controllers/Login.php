@@ -41,8 +41,9 @@ class Login extends CI_Controller {
 
 					// $data['content'] = 'home/v_QLyNguoiDung';
 					// $this->load->view('home/index', $data);
-					
-					redirect('/QLyPhongMay');
+					$data['content'] = 'home/PhongMay/v_QLyPhongMay';
+					$this->load->view('home/index', $data);
+					//redirect('/QLyPhongMay');
 					// return;
 				}	
 			}

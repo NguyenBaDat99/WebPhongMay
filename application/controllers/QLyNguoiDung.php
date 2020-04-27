@@ -108,7 +108,17 @@ class QLyNguoiDung extends CI_Controller {
         $maNguoiDung = $this->input->post('MaNguoiDung');
         if($this->input->post('btnHuy') != '')
         {
-            redirect('/QLyPhongMay');
+            if($this->session->userdata['LoaiNguoiDung'] == "Admin")
+            {
+                $this->index();
+            }
+            else
+            {
+                $data['content'] = 'home/PhongMay/v_QLyPhongMay';
+                $this->load->view('home/index', $data);
+                //redirect('/QLyPhongMay');
+            }
+            
         }
         if($this->input->post('btnThem') != '')
         {
