@@ -150,3 +150,48 @@ ALTER TABLE `may_con`
 COMMIT;
 
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mon_hoc`
+--
+
+CREATE TABLE `mon_hoc` (
+  `MaMonHoc` varchar(20) COLLATE utf8_vietnamese_ci NOT NULL,
+  `TenMonHoc` varchar(30) COLLATE utf8_vietnamese_ci NOT NULL,
+  `NganhHoc` varchar(30) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `SoTinChi` int(11) DEFAULT NULL,
+  `GiangVienPhuTrach` varchar(30) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `TrangThai` varchar(20) COLLATE utf8_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `mon_hoc`
+--
+
+INSERT INTO `mon_hoc` (`MaMonHoc`, `TenMonHoc`, `NganhHoc`, `SoTinChi`, `GiangVienPhuTrach`, `TrangThai`) VALUES
+('DCHCM01', 'Tư tưởng Hồ Chí Minh', 'Đại cương', 3, 'LeThanh', 'Close'),
+('DCM01', 'Mác Lê-nin I', 'Đại cương', 3, 'LeThanh', 'Close'),
+('DCM02', 'Mác Lê-nin II', 'Đại cương', 3, 'LeThanh', 'Close'),
+('ITCSDL01', 'Cơ sở dữ liệu cơ bản', 'Khoa học máy tính', 3, 'VanThach', 'Close'),
+('ITCSDL02', 'Cơ sở dữ liệu nâng cao', 'Khoa học máy tính', 4, 'VanThach', 'Open'),
+('ITDD01', 'Lập trình thiệt bị di động', 'Khoa học máy tính', 4, 'VanThach', 'Open'),
+('ITDL01', 'Lập trình cơ sở dữ liệu', 'Khoa học máy tính', 4, 'LeBac', 'Open'),
+('ITKTMT', 'Kiến trúc máy tính', 'Khoa học máy tính', 4, 'CaoTan', 'Close'),
+('ITM01', 'Mạng máy tính cơ sở', 'Khoa học máy tính', 3, 'LeBac', 'Open'),
+('ITM02', 'Mạng máy tính nâng cao', 'Khoa học máy tính', 4, 'LeBac', 'Open'),
+('ITW01', 'Ứng dụng web', 'Khoa học máy tính', 3, 'CaoTan', 'Close'),
+('ITW02', 'Lập trình web', 'Khoa học máy tính', 4, 'CaoTan', 'Open');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `mon_hoc`
+--
+ALTER TABLE `mon_hoc`
+  ADD PRIMARY KEY (`MaMonHoc`);
+COMMIT;
+
+
