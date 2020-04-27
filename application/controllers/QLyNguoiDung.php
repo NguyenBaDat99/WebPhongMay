@@ -108,7 +108,7 @@ class QLyNguoiDung extends CI_Controller {
         $maNguoiDung = $this->input->post('MaNguoiDung');
         if($this->input->post('btnHuy') != '')
         {
-            $this->index();
+            redirect('/QLyPhongMay');
         }
         if($this->input->post('btnThem') != '')
         {

@@ -19,7 +19,7 @@
             <?php echo $this->session->userdata('TenNguoiDung');?>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="http://localhost/WebPhongMay/index.php/QLyNguoiDung">Tùy chỉnh</a>
+            <a class="dropdown-item" href= <?php echo "http://localhost/WebPhongMay/index.php/QLyNguoiDung/load_suaNguoiDung/".$this->session->userdata('MaNguoiDung');?>>Tùy chỉnh</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="http://localhost/WebPhongMay/index.php">Đăng xuất</a>
@@ -47,11 +47,18 @@
                         Quản lý thời khóa biểu
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyNguoiDung">
-                        Quản lý người dùng
-                        </a>
-                    </li>
+                    <?php
+                        if($this->session->userdata('LoaiNguoiDung') == 'Admin')
+                        {?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyNguoiDung">
+                                Quản lý người dùng
+                                </a>
+                            </li>
+                        <?php
+                        } 
+                    ?>
+                    
                   </ul>
               </div>
           </nav>
