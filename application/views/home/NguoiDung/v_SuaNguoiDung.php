@@ -12,7 +12,7 @@
     <label>Xác nhận mật khẩu:</label>
     <input class="form-control" style="width: 300px;" name="XacNhanMatKhau" type="password" placeholder="Xác nhận mật khẩu">
     <?php
-      if($NguoiDung['LoaiNguoiDung'] == 'Admin')
+      if($this->session->userdata['LoaiNguoiDung'] == 'Admin')
       {?>
          <label>Loại người dùng:</label>
           <div class="form-check">

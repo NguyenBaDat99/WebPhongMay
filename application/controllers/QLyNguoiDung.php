@@ -135,8 +135,12 @@ class QLyNguoiDung extends CI_Controller {
                
                 $tenNguoiDung = $this->input->post('TenNguoiDung');
                 $matKhau = $this->input->post('MatKhau');
-                $loaiNguoiDung = $this->input->post('LoaiNguoiDung');
-
+                $loaiNguoiDung = 'User';
+                if($this->session->userdata['LoaiNguoiDung'] == "Admin")
+                {
+                    $loaiNguoiDung = $this->input->post('LoaiNguoiDung');
+                }             
+                
                 //Kiểm lỗi trùng Tên đăng nhập
                 $ds_nguoidung = $this->m_NguoiDung->ds_nguoidung();
                 foreach($ds_nguoidung as $item)
