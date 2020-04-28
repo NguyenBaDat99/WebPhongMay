@@ -18,7 +18,7 @@
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?php echo $this->session->userdata('TenNguoiDung');?>
         </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href= <?php echo "http://localhost/WebPhongMay/index.php/QLyNguoiDung/load_suaNguoiDung/".$this->session->userdata('MaNguoiDung');?>>Tùy chỉnh</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
