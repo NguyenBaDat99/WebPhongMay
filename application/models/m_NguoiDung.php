@@ -48,8 +48,15 @@ class m_NguoiDung extends CI_Model{
         }
         else
         {
-            $query=$this->db->query("call tim_nguoidung('".$thongTin."');");
-            return $query->result_array();
+            // $query=$this->db->query("call tim_nguoidung('".$thongTin."');");
+            // return $query->result_array();
+            $query = $this->db->query("call tim_nguoidung('".$thongTin."')");
+            $res = $query->result_array();
+
+            $query->next_result(); 
+            $query->free_result(); 
+
+            return $res;
         }
     }
     public function tim_nguoidung_ten($tenNguoiDung)
