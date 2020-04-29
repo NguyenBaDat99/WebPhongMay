@@ -8,6 +8,13 @@
     <div class="form-group">
       <input type="password" class="form-control" name="MatKhau" id="pwd" placeholder="Nhập mật khẩu" required>
     </div>
+
+    <?php
+    $error = $this->session->flashdata('msg');
+    if($error){
+     echo  '<div class="alert alert-success">'.$this->session->flashdata('msg').'</div>';
+   }
+   ?>
     <!-- <div class="checkbox">
       <label><input type="checkbox">Nhớ mật khẩu</label>
     </div> -->

@@ -52,8 +52,12 @@ class Login extends CI_Controller {
 					//redirect('/QLyPhongMay');
 					return;
 				}	
+				
+	
 			}
+			$this->session->set_flashdata('msg','Tên đăng nhập hoặc mật khẩu không hợp lệ !');
 			
+			//redirect(Login);
 			$this->index();
 			// $data['content'] = 'login/f_login';
 			// $this->load->view('login/index', $data);
