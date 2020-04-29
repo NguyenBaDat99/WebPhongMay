@@ -2,9 +2,9 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand">Danh sách môn học</a>
   <form class="form-inline" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/timMonHoc" method="post">
-    <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required maxlength="20">
+    <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required maxlength="20" readonly>
     <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Tìm kiếm</button> -->
-    <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm">
+    <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm" disabled>
   </form>
 </nav>
 
@@ -209,81 +209,11 @@
     </tbody>
   </table>
   
-  <!-- Nút thêm môn học -->
-  <?php
-    if($this->session->userdata('LoaiNguoiDung') == "Admin") //Kiểm tra loại người dùng là Admin để mở chức năng thêm môn học
-    {?>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalThemMonHoc">
-          Thêm môn học
-        </button>
-
-        <!-- Modal thêm môn học -->
-        <div class="modal fade" id="modalThemMonHoc" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Thêm môn học</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-              <form method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/themMonHoc">
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label>Mã môn học</label>
-                    <input type="text" name="MaMonHoc" class="form-control" id="inputMaMonHoc" placeholder="ITDL01" required autofocus>
-                  </div>
-                  <div class="form-group col-md-8">
-                    <label>Tên môn học</label>
-                    <input type="text" name="TenMonHoc" class="form-control" id="inputTenMonHoc" placeholder="Lập trình cơ sở dữ liệu" required>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-8">
-                    <label>Ngành học</label>
-                    <input type="text" name="NganhHoc" class="form-control" id="inputNganhHoc" placeholder="Khoa học máy tính">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label>Số tín chỉ</label>
-                    <input type="number" name="SoTinChi" class="form-control" id="inputSoTinChi" placeholder="4" min="1" max="10" required>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label>Giảng viên phụ trách</label>
-                        <select id="inputGiangVienPhuTrach" name="GiangVienPhuTrach" class="form-control">
-                          <option selected></option>
-                          <?php
-                            foreach($dsNguoiDung as $item)
-                            {
-                              echo '<option>'.$item['TenNguoiDung'].'</option>';
-                            }
-                          ?>
-                        </select>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label>Trạng thái</label>
-                        <select id="inputTrangThai" name="TrangThai" class="form-control">
-                          <option selected>Open</option>
-                          <option>Close</option>
-                        </select>
-                  </div>
-                </div>
-                <input type="submit" name="btnThem" class="btn btn-primary right" value="Thêm môn học">
-              </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                <!-- <button type="button" class="btn btn-primary">Thêm môn học</button> -->
-              </div>
-            </div>
-          </div>
-        </div>
-<?php }
-    ?>
-
-    
+  <!-- Nút quay lại  -->
+  <form action="http://localhost/WebPhongMay/index.php/QLyMonHoc">
+    <input type="submit" class="btn btn-dark" value="Quay lại">
+  </form>
+  
   
 
 

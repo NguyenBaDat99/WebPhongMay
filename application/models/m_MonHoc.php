@@ -17,6 +17,39 @@ class m_MonHoc extends CI_Model{
         $this->db->query("delete from mon_hoc where MaMonHoc='".$maMonHoc."'");
     }
 
+    public function them_monhoc($maMonHoc, $tenMonHoc, $nganhHoc, $soTinChi, $giangVienPhuTrach, $trangThai)
+    {
+        $this->db->query("insert into mon_hoc 
+        values('".$maMonHoc."', '".$tenMonHoc."', '".$nganhHoc."', ".$soTinChi.", '".$giangVienPhuTrach."', '".$trangThai."')");
+    }
+
+    public function sua_monhoc($maMonHoc, $tenMonHoc, $nganhHoc, $soTinChi, $giangVienPhuTrach, $trangThai)
+    {
+        $this->db->query("update mon_hoc  
+        set TenMonHoc = '".$tenMonHoc."', NganhHoc = '".$nganhHoc."', SoTinChi = ".$soTinChi.", GiangVienPhuTrach = '".$giangVienPhuTrach."', TrangThai = '".$trangThai."'
+        where MaMonHoc = '".$maMonHoc."'");
+    }
+
+    public function tim_monhoc($thongTin)
+    {
+        if(is_numeric($thongTin))
+        {
+            $query=$this->db->query("select * from mon_hoc where SoTinChi=".$thongTin);
+            return $query->result_array();
+        }
+        else
+        {
+            $query = $this->db->query("call tim_monhoc('".$thongTin."')");
+            $res = $query->result_array();
+
+            $query->next_result(); 
+            $query->free_result(); 
+
+            return $res;
+        }
+    }
+
+
     // public function them_nguoidung($tenNguoiDung, $matKhau, $loaiNguoiDung)
     // {
     //     $maNguoiDung = 1;
