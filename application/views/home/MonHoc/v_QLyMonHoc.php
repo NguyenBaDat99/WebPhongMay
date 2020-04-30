@@ -1,7 +1,18 @@
 <!-- <h3>Danh sách người dùng</h3> -->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Danh sách môn học</a>
+  <a class="navbar-brand" href="http://localhost/WebPhongMay/index.php/QLyMonHoc">Danh sách môn học</a>
+  
   <form class="form-inline" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/timMonHoc" method="post">
+    <?php
+      if($this->session->userdata('LoaiNguoiDung') == "Admin")
+      {
+        echo '<button type="button" class="btn btn-primary right" data-toggle="modal" data-target="#modalThemMonHoc">
+          Thêm môn học
+        </button>';
+      }
+      ?>
+    
+    &emsp;
     <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required maxlength="20">
     <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Tìm kiếm</button> -->
     <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm">
@@ -11,48 +22,174 @@
 <table class="table">
     <thead>
       <tr>
-        <th>Mã môn học</th>
-        <th>Tên môn học</th>
-        <th>Ngành học</th>
-        <th>Số tín chỉ</th>
-        <th>Giảng viên phụ trách</th>
-        <!-- <th>
+        <!-- <th>Mã môn học</th> -->
+        <th>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Giảng viên phụ trách
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>Mã môn học</strong>
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <form class="px-4 py-3">
-                  
-                  <div class="form-group">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                      <label class="form-check-label" for="dropdownCheck">
-                        Sắp xếp A-Z
-                      </label>
-                      <br/>
-                      <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                      <label class="form-check-label" for="dropdownCheck">
-                        Sắp xếp Z-A
-                      </label>
-
-                      <?php
-                        foreach($dsMonHoc as $item){
-                          echo '<br/>
-                              <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                              <label class="form-check-label" for="dropdownCheck">'
-                                .$item['GiangVienPhuTrach'].
-                              '</label>';     
-                        }
-                      ?>
-                    </div>
-                  </div>
-                  
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-weight: normal">
+              <form class="px-3" method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/sapXepMaMH">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios1" value="ASC" checked>Sắp xếp chữ cái A-Z
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios2" value="DESC">Sắp xếp chữ cái Z-A
+              </div>
+              <div class="dropdown-divider"></div>
+              <input type="submit" name="btnApDung" class="btn btn-outline-dark" value="Áp dụng">
               </form>
             </div>
           </div>
-        </th> -->
-        <th>Trạng thái</th>
+        </th>
+
+        <!-- <th>Tên môn học</th> -->
+        <th>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>Tên môn học</strong>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-weight: normal">
+              <form class="px-3" method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/sapXepTenMH">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios1" value="ASC" checked>Sắp xếp chữ cái A-Z
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios2" value="DESC">Sắp xếp chữ cái Z-A
+              </div>
+              <div class="dropdown-divider"></div>
+              <input type="submit" name="btnApDung" class="btn btn-outline-dark" value="Áp dụng">
+              </form>
+            </div>
+          </div>
+        </th>
+
+        <!-- <th>Ngành học</th> -->
+        <th>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>Ngành học</strong>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-weight: normal">
+              <form class="px-3" method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/sapXepNganhHoc">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios1" value="ASC">Sắp xếp chữ A-Z
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios2" value="DESC">Sắp xếp chữ Z-A
+              </div>
+              <div class="dropdown-divider"></div>
+              <?php
+                  foreach($dsNganhHoc as $item)
+                  {
+                    echo'
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="chonLua[]" id="checkbox" value="'.$item['NganhHoc'].'">
+                          '.$item['NganhHoc'].'
+                        </div>
+                    ';
+                  }
+              ?>
+              <div class="dropdown-divider"></div>
+              <input type="submit" name="btnApDung" class="btn btn-outline-dark" value="Áp dụng">
+              </form>
+            </div>
+          </div>
+        </th>
+
+        <!-- <th>Số tín chỉ</th> -->
+        <th>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>Số tín chỉ</strong>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-weight: normal">
+              <form class="px-3" method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/sapXepSoTinChi">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios1" value="ASC">Sắp tăng dần
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios2" value="DESC">Sắp giảm dần
+              </div>
+              <div class="dropdown-divider"></div>
+              <?php
+                  foreach($dsSoTinChi as $item)
+                  {
+                    echo'
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="chonLua[]" id="checkbox" value="'.$item['SoTinChi'].'">
+                          '.$item['SoTinChi'].'
+                        </div>
+                    ';
+                  }
+              ?>
+              <div class="dropdown-divider"></div>
+              <input type="submit" name="btnApDung" class="btn btn-outline-dark" value="Áp dụng">
+              </form>
+            </div>
+          </div>
+        </th>
+
+        <!-- <th>Giảng viên phụ trách</th> -->
+        <th>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>Giảng viên phụ trách</strong>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-weight: normal">
+              <form class="px-3" method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/sapXepGVMH">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios1" value="ASC">Sắp xếp chữ cái A-Z
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios2" value="DESC">Sắp xếp chữ cái Z-A
+              </div>
+              <div class="dropdown-divider"></div>
+              <?php
+                  foreach($dsGiangVienPhuTrach as $item)
+                  {
+                    echo'
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="chonLua[]" id="checkbox" value="'.$item['GiangVienPhuTrach'].'">
+                          '.$item['GiangVienPhuTrach'].'
+                        </div>
+                    ';
+                  }
+              ?>
+              <div class="dropdown-divider"></div>
+              <input type="submit" name="btnApDung" class="btn btn-outline-dark" value="Áp dụng">
+              </form>
+            </div>
+          </div>
+        </th>
+
+        <!-- <th>Trạng thái</th> -->
+        <th>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>Trạng thái</strong>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-weight: normal">
+              <form class="px-3" method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/sapXepTrangThaiMH">
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios1" value="All" checked>Tất cả
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios1" value="Open">Open
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sapXep" id="exampleRadios2" value="Close">Close
+              </div>
+              <div class="dropdown-divider"></div>
+              <input type="submit" name="btnApDung" class="btn btn-outline-dark" value="Áp dụng">
+              </form>
+            </div>
+          </div>
+        </th>
+
+        <!-- <th>Thao tác</th> -->
         <?php
             if($this->session->userdata('LoaiNguoiDung') == "Admin")
             {
@@ -170,13 +307,19 @@
                                 echo '</select>
                           </div>
                         </div>
-                        <input type="submit" name="btnSua" class="btn btn-primary right" value="Sửa môn học">
+                        <div class="dropdown-divider"></div>
+                        <input type="submit" name="btnSua" class="btn btn-primary left" value="Sửa môn học">
+                        <button type="button" class="btn btn-secondary right" data-dismiss="modal">Hủy</button>
                       </form>
                       </div>
+                      <!--
                       <div class="modal-footer">
+                      <form method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/suaMonHoc">
+                        <input type="submit" name="btnSua" class="btn btn-primary left" value="Sửa môn học">
+                        </form>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                        <!-- <button type="button" class="btn btn-primary">Thêm môn học</button> -->
                       </div>
+                      -->
                     </div>
                   </div>
                 </div>';
@@ -213,6 +356,7 @@
   <?php
     if($this->session->userdata('LoaiNguoiDung') == "Admin") //Kiểm tra loại người dùng là Admin để mở chức năng thêm môn học
     {?>
+        <div class="dropdown-divider"></div>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalThemMonHoc">
           Thêm môn học
         </button>
@@ -270,18 +414,24 @@
                         </select>
                   </div>
                 </div>
-                <input type="submit" name="btnThem" class="btn btn-primary right" value="Thêm môn học">
+                <div class="dropdown-divider"></div>
+                <input type="submit" name="btnThem" class="btn btn-primary" value="Thêm môn học">
+                <button type="button" class="btn btn-secondary right" data-dismiss="modal">Hủy</button>
               </form>
               </div>
+              <!--
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                <!-- <button type="button" class="btn btn-primary">Thêm môn học</button> -->
               </div>
+              -->
             </div>
           </div>
         </div>
 <?php }
     ?>
+<br/>
+<br/>
+                      
 
     
   

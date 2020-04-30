@@ -1,8 +1,8 @@
 <!-- <h3>Danh sách người dùng</h3> -->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Danh sách môn học</a>
-  <form class="form-inline" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/timMonHoc" method="post">
-    <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required maxlength="20" readonly>
+  <a class="navbar-brand" href="http://localhost/WebPhongMay/index.php/QLyMonHoc">Danh sách môn học</a>
+  <form class="form-inline" method="post">
+    <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" <?php echo 'value="'.$thongTin.'"'?> aria-label="Search" required maxlength="20" readonly>
     <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Tìm kiếm</button> -->
     <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm" disabled>
   </form>
@@ -12,46 +12,10 @@
     <thead>
       <tr>
         <th>Mã môn học</th>
-        <th>Tên môn học</th>
+        <th>Tên môn học</th>        
         <th>Ngành học</th>
         <th>Số tín chỉ</th>
         <th>Giảng viên phụ trách</th>
-        <!-- <th>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Giảng viên phụ trách
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <form class="px-4 py-3">
-                  
-                  <div class="form-group">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                      <label class="form-check-label" for="dropdownCheck">
-                        Sắp xếp A-Z
-                      </label>
-                      <br/>
-                      <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                      <label class="form-check-label" for="dropdownCheck">
-                        Sắp xếp Z-A
-                      </label>
-
-                      <?php
-                        foreach($dsMonHoc as $item){
-                          echo '<br/>
-                              <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                              <label class="form-check-label" for="dropdownCheck">'
-                                .$item['GiangVienPhuTrach'].
-                              '</label>';     
-                        }
-                      ?>
-                    </div>
-                  </div>
-                  
-              </form>
-            </div>
-          </div>
-        </th> -->
         <th>Trạng thái</th>
         <?php
             if($this->session->userdata('LoaiNguoiDung') == "Admin")
@@ -170,13 +134,19 @@
                                 echo '</select>
                           </div>
                         </div>
-                        <input type="submit" name="btnSua" class="btn btn-primary right" value="Sửa môn học">
+                        <div class="dropdown-divider"></div>
+                        <input type="submit" name="btnSua" class="btn btn-primary left" value="Sửa môn học">
+                        <button type="button" class="btn btn-secondary right" data-dismiss="modal">Hủy</button>
                       </form>
                       </div>
+                      <!--
                       <div class="modal-footer">
+                      <form method="POST" action="http://localhost/WebPhongMay/index.php/QLyMonHoc/suaMonHoc">
+                        <input type="submit" name="btnSua" class="btn btn-primary left" value="Sửa môn học">
+                        </form>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                        <!-- <button type="button" class="btn btn-primary">Thêm môn học</button> -->
                       </div>
+                      -->
                     </div>
                   </div>
                 </div>';
