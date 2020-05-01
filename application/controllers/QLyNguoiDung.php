@@ -95,6 +95,7 @@ class QLyNguoiDung extends CI_Controller {
 
                 //Các lỗi đã được xử => Thêm người dùng vào database
                 $this->m_NguoiDung->them_nguoidung($tenNguoiDung, $matKhau, $loaiNguoiDung);
+                echo "<script>alert('Thêm thành công..!!');</script>";
                 $this->index();
             }
             else{
@@ -151,12 +152,14 @@ class QLyNguoiDung extends CI_Controller {
                     if($item['MaNguoiDung'] != $maNguoiDung && $item['TenNguoiDung'] == $tenNguoiDung)
                     {
                         $this->load_suaNguoiDung($maNguoiDung);
+
                         return;
                     }
                 }
 
                 //Các lỗi đã được xử => Sửa thông tin người dùng
                 $this->m_NguoiDung->sua_nguoidung($maNguoiDung, $tenNguoiDung, $matKhau, $loaiNguoiDung);
+                 echo "<script>alert('sửa thành công..!!');</script>";
                 // $this->index();
                 if($this->session->userdata['LoaiNguoiDung'] == "Admin")
                 {

@@ -34,9 +34,15 @@ class Login extends CI_Controller {
    //      	}
 			foreach($users as $item)
 			{
-				if($item['TenNguoiDung'] == $tenNguoiDung && $item['MatKhau'] == $matKhau)
+				// tennguoidung chu hoa hay thuong deu vao duoc
+				$tenDB	= strtolower($tenNguoiDung);
+				$tenbox = strtolower($item['TenNguoiDung']);
+
+				if($tenDB == $tenbox && $item['MatKhau'] == $matKhau)
 				{
 					$nguoidungmoi = array(
+
+
 						'MaNguoiDung' => $item['MaNguoiDung'],
 						'TenNguoiDung' => $item['TenNguoiDung'],
 						'MatKhau' => $item['MatKhau'],
@@ -68,7 +74,7 @@ class Login extends CI_Controller {
     {
          $this->session->sess_destroy();
    		 $this->session->unset_userdata('nguoidungmoi');
-    	echo "<script>alert('Logged out successfully..!!');window.location='http://localhost/WebPhongMay/index.php'</script>";
+    	echo "<script>alert('Đăng xuất..!!');window.location='http://localhost/WebPhongMay/index.php'</script>";
     }
 
 
