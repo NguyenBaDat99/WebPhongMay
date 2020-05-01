@@ -2,7 +2,7 @@
   <a class="navbar-brand">Sửa thông tin người dùng</a>
 </nav>
 
-<form action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/suaNguoiDung" method="post">
+<form action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/suaNguoiDung" style="padding: 20px;" method="post">
     <label>Mã người dùng:</label>
     <input class="form-control" style="width: 300px;" name="MaNguoiDung" value=<?php echo '"'.$NguoiDung['MaNguoiDung'].'"'?> readonly>
     <label>Tên người dùng (Tên đăng nhập):</label>
@@ -33,7 +33,7 @@
     
     
     <br/>
-    <input type="submit" name="btnThem" class="btn btn-primary right" value="Sửa">
+    <input type="submit" name="btnSua" class="btn btn-primary right" value="Sửa">
     <input type="submit" name="btnHuy" class="btn btn-danger" value="Hủy">
     <?php
     echo validation_errors();
