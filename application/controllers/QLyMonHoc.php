@@ -43,7 +43,8 @@ class QLyMonHoc extends CI_Controller {
         // $data['dsMonHoc'] = $this->m_MonHoc->ds_monhoc();
         // $data['dsNguoiDung'] = $this->m_NguoiDung->ds_nguoidung(); 
         
-        $view['content'] = $this->load->view('home/MonHoc/v_QLyMonHoc',$GLOBALS);
+        // $view['content'] = $this->load->view('home/MonHoc/v_QLyMonHoc',$GLOBALS);
+        $this->load->view('home/MonHoc/v_QLyMonHoc',$GLOBALS);
 
         $this->load->view('home/footer');
     }

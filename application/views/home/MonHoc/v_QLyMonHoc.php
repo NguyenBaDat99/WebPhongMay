@@ -357,7 +357,7 @@
     if($this->session->userdata('LoaiNguoiDung') == "Admin") //Kiểm tra loại người dùng là Admin để mở chức năng thêm môn học
     {?>
         <div class="dropdown-divider"></div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalThemMonHoc">
+        &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalThemMonHoc">
           Thêm môn học
         </button>
 
