@@ -12,7 +12,7 @@ class QLyNguoiDung extends CI_Controller {
         $this->load->helper(array('url', 'form'));
         if(!$this->session->userdata('MaNguoiDung')){
         return redirect('Login');
-    }
+        }
     }
 
 	public function index()
@@ -27,18 +27,21 @@ class QLyNguoiDung extends CI_Controller {
         // $data['content'] = 'home/v_QLyNguoiDung';
 		// $this->load->view('home/index', $data);
     }
+    
+    public function xoaNguoiDung($maNguoiDung)
+    {
+        if($this->input->post('btnXoa') != '')
+        {
+            $this->m_NguoiDung->xoa_nguoidung_id($maNguoiDung);
+            $this->index();
+        }
+    }
 
-    public function suaXoaTT($MaDangNhap)
+    public function btnSuaND($MaDangNhap)
     {
         if($this->input->post('btnSua') != '')
         {
             $this->load_suaNguoiDung($MaDangNhap);
-        }
-        else if($this->input->post('btnXoa') != '')
-        {
-
-            $this->m_NguoiDung->xoa_nguoidung_id($MaDangNhap);
-            $this->index();
         }
     }
 
@@ -88,7 +91,7 @@ class QLyNguoiDung extends CI_Controller {
                 {
                     if($item['TenNguoiDung'] == $tenNguoiDung)
                     {
-                        redirect('/QLyNguoiDung/Load_themNguoiDung');
+                        $this->load_themNguoiDung();
                         return;
                     }
                 }
@@ -125,7 +128,7 @@ class QLyNguoiDung extends CI_Controller {
             }
             
         }
-        if($this->input->post('btnThem') != '')
+        if($this->input->post('btnSua') != '')
         {
             $this->load->library('form_validation');
             //Kiểm tra các điều kiện hợp lệ cơ bản
@@ -174,7 +177,7 @@ class QLyNguoiDung extends CI_Controller {
             }
             else
             {
-                    $this->load_suaNguoiDung($maNguoiDung);
+                $this->load_suaNguoiDung($maNguoiDung);
             }
 
         }
@@ -194,10 +197,6 @@ class QLyNguoiDung extends CI_Controller {
 
             $this->load->view('home/footer');
         }
-    }
-    public function test_button()
-    {
-        $btnTest = $this->button->name('btnTest');
     }
 
 }

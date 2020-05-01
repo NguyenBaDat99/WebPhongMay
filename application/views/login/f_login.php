@@ -12,7 +12,7 @@
     <?php
     $error = $this->session->flashdata('msg');
     if($error){
-     echo  '<div class="alert alert-success">'.$this->session->flashdata('msg').'</div>';
+     echo  '<div class="alert alert-danger">'.$this->session->flashdata('msg').'</div>';
    }
    ?>
     <!-- <div class="checkbox">

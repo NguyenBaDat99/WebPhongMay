@@ -12,6 +12,126 @@ class m_MonHoc extends CI_Model{
         return $query->result_array();
     }
 
+
+    //Lấy ds môn học SẮP XẾP theo TÊN MÔN HỌC
+    public function ds_monhoc_sapxep_tenMH($sapXep)
+    {
+        $query=$this->db->query("select * from mon_hoc order by TenMonHoc ".$sapXep);
+        return $query->result_array();
+    }
+    //---------------------------------------
+
+
+
+    //Lấy ds môn học SẮP XẾP theo MÃ MÔN HỌC
+    public function ds_monhoc_sapxep_maMH($sapXep)
+    {
+        $query=$this->db->query("select * from mon_hoc order by MaMonHoc ".$sapXep);
+        return $query->result_array();
+    }
+    //---------------------------------------
+
+
+
+    //Lấy ds môn học SẮP XẾP theo TRẠNG THÁI MÔN HỌC
+    public function ds_monhoc_sapxep_trangthai($trangThai)
+    {
+        if($trangThai == 'All')
+        {
+            $query=$this->db->get("mon_hoc");
+            return $query->result_array();
+        }
+        else
+        {
+            $query=$this->db->query("select * from mon_hoc where TrangThai = '".$trangThai."'");
+            return $query->result_array();
+        }        
+    }
+    //---------------------------------------
+
+
+
+    //Lấy ds môn học SẮP XẾP theo GIÁO VIÊN PHỤ TRÁCH
+    public function ds_monhoc_sapxep_gv_sapXep_only($sapXep)
+    {
+        $query=$this->db->query("select * from mon_hoc order by GiangVienPhuTrach ".$sapXep);
+        return $query->result_array();
+    }
+
+    public function ds_monhoc_sapxep_gv_Only($dsGV)
+    {
+        $query=$this->db->query("select * from mon_hoc where GiangVienPhuTrach in (".$dsGV.")");
+        return $query->result_array();
+    }
+
+    public function ds_monhoc_sapxep_gv($dsGV, $sapXep)
+    {
+        $query=$this->db->query("select * from mon_hoc where GiangVienPhuTrach in (".$dsGV.") order by GiangVienPhuTrach ".$sapXep);
+        return $query->result_array();
+    }
+    //---------------------------------------
+   
+
+
+    //Lấy ds môn học SẮP XẾP theo NGÀNH HỌC
+    public function ds_monhoc_sapxep_nganhhoc_sapXep_only($sapXep)
+    {
+        $query=$this->db->query("select * from mon_hoc order by NganhHoc ".$sapXep);
+        return $query->result_array();
+    }
+
+    public function ds_monhoc_sapxep_nganhhoc_Only($dsNganhHoc)
+    {
+        $query=$this->db->query("select * from mon_hoc where NganhHoc in (".$dsNganhHoc.")");
+        return $query->result_array();
+    }
+
+    public function ds_monhoc_sapxep_nganhhoc($dsNganhHoc, $sapXep)
+    {
+        $query=$this->db->query("select * from mon_hoc where NganhHoc in (".$dsNganhHoc.") order by NganhHoc ".$sapXep);
+        return $query->result_array();
+    }
+    //---------------------------------------
+
+
+    //Lấy ds môn học SẮP XẾP theo SỐ TÍN CHỈ
+    public function ds_monhoc_sapxep_tinchi_sapXep_only($sapXep)
+    {
+        $query=$this->db->query("select * from mon_hoc order by SoTinChi ".$sapXep);
+        return $query->result_array();
+    }
+
+    public function ds_monhoc_sapxep_tinchi_Only($dsSoTinChi)
+    {
+        $query=$this->db->query("select * from mon_hoc where SoTinChi in (".$dsSoTinChi.")");
+        return $query->result_array();
+    }
+
+    public function ds_monhoc_sapxep_tinchi($dsSoTinChi, $sapXep)
+    {
+        $query=$this->db->query("select * from mon_hoc where SoTinChi in (".$dsSoTinChi.") order by SoTinChi ".$sapXep);
+        return $query->result_array();
+    }
+    //---------------------------------------
+
+    public function ds_nganhhoc()
+    {
+        $query=$this->db->query("select distinct NganhHoc FROM mon_hoc");
+        return $query->result_array();
+    }
+
+    public function ds_giangvienphutrach()
+    {
+        $query=$this->db->query("select distinct GiangVienPhuTrach FROM mon_hoc");
+        return $query->result_array();
+    }
+
+    public function ds_sotinchi()
+    {
+        $query=$this->db->query("select distinct SoTinChi FROM mon_hoc");
+        return $query->result_array();
+    }
+
     public function xoa_monhoc($maMonHoc)
     {
         $this->db->query("delete from mon_hoc where MaMonHoc='".$maMonHoc."'");
