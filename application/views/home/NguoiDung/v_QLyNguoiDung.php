@@ -70,7 +70,7 @@
                         <input type="text" name="MaNguoiDung" class="form-control" id="inputMaNguoiDung" value="'.$item['MaNguoiDung'].'" readonly autofocus>
                       </div>
                       <div class="form-group col-md-8">
-                        <label>Tên môn học</label>
+                        <label>Tên người dùng</label>
                         <input type="text" name="TenNguoiDung" class="form-control" id="inputTenNguoiDung" value="'.$item['TenNguoiDung'].'" readonly autofocus>
                       </div>
                     </div>
