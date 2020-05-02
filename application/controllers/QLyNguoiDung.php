@@ -14,9 +14,9 @@ class QLyNguoiDung extends CI_Controller {
         return redirect('Login');
         }
         // không cho user truy cap bang link 
-        if($this->session->userdata['LoaiNguoiDung'] != "Admin"){
-        return redirect('Login');
-        }
+        // if($this->session->userdata['LoaiNguoiDung'] != "Admin"){
+        // return redirect('Login');
+        // }
     }
 
 	public function index()
