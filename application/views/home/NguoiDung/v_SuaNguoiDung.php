@@ -2,17 +2,18 @@
   <a class="navbar-brand">Sửa mật khẩu người dùng</a>
 </nav>
 
-<form action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/suaNguoiDung" style="padding: 20px;" method="post">
+<form action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/suaNguoiDung" style="padding: 20px;" method="post" >
     <label>Mã người dùng:</label>
     <input class="form-control" style="width: 300px;" name="MaNguoiDung" value=<?php echo '"'.$NguoiDung['MaNguoiDung'].'"'?> readonly>
     <label>Tên người dùng (Tên đăng nhập):</label>
     <input class="form-control" style="width: 300px;" name="TenNguoiDung" value=<?php echo '"'.$NguoiDung['TenNguoiDung'].'"'?> readonly>
-    <label>Mật khẩu:</label>
+    <label>Mật khẩu cũ:</label>
+    <input class="form-control" style="width: 300px;" name="XacNhanMatKhauCu" type="password" placeholder="Nhập mật khẩu cũ" >     
+    <label>Mật khẩu Mới:</label>
     <input class="form-control" style="width: 300px;" name="MatKhau" type="password" placeholder="Nhập mật khẩu mới" >
     <label>Xác nhận mật khẩu:</label>
     <input class="form-control" style="width: 300px;" name="XacNhanMatKhau" type="password" placeholder="Nhập lại mật khẩu mới" >
-    <label>Xác nhận mật khẩu cũ:</label>
-    <input class="form-control" style="width: 300px;" name="XacNhanMatKhauCu" type="password" placeholder="Nhập mật khẩu cũ" >     
+  
     <!-- <?php
       //if($this->session->userdata['LoaiNguoiDung'] == 'Admin')
       {?>
