@@ -12,10 +12,7 @@ class m_NguoiDung extends CI_Model{
         return $query->result_array();
     }
 
-    public function xoa_nguoidung_ten($tenNguoiDung)
-    {
-        $this->db->query("delete from nguoi_dung where TenNguoiDung='".$tenNguoiDung."'");
-    }
+        
 
     public function xoa_nguoidung_id($maNguoiDung)
     {
