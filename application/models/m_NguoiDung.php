@@ -73,12 +73,18 @@ class m_NguoiDung extends CI_Model{
         return $query->row_array();
     }
 
-    public function sua_nguoidung($maNguoiDung, $tenNguoiDung, $matKhau, $loaiNguoiDung)
+    public function sua_nguoidung($maNguoiDung, $tenNguoiDung, $matKhau)
     {
-
         $maHoaMK= password_hash($matKhau, PASSWORD_DEFAULT);
-        $this->db->query("update nguoi_dung set TenNguoiDung='".$tenNguoiDung."',MatKhau='".$maHoaMK."', LoaiNguoiDung='".$loaiNguoiDung."' where MaNguoiDung=".$maNguoiDung."");
+        $this->db->query("update nguoi_dung set TenNguoiDung='".$tenNguoiDung."',MatKhau='".$maHoaMK."' where MaNguoiDung=".$maNguoiDung."");
     }
+
+    public function sua_nguoidung_loainguoidung($maNguoiDung, $loaiNguoiDung)
+    {
+        $this->db->query("update nguoi_dung set LoaiNguoiDung='".$loaiNguoiDung."' where MaNguoiDung=".$maNguoiDung."");
+    }
+    
+
 
     
 

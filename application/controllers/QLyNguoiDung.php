@@ -37,13 +37,24 @@ class QLyNguoiDung extends CI_Controller {
         }
     }
 
-    public function btnSuaND($MaDangNhap)
+    public function suaLoaiNguoiDung()
     {
         if($this->input->post('btnSua') != '')
         {
-            $this->load_suaNguoiDung($MaDangNhap);
+            $maNguoiDung = $_POST['MaNguoiDung'];
+            $loaiNguoiDung = $_POST['LoaiNguoiDung'];
+            $this->m_NguoiDung->sua_nguoidung_loainguoidung($maNguoiDung, $loaiNguoiDung);
+            $this->index();
         }
     }
+
+    // public function btnSuaND($MaDangNhap)
+    // {
+    //     if($this->input->post('btnSua') != '')
+    //     {
+    //         $this->load_suaNguoiDung($MaDangNhap);
+    //     }
+    // }
 
     public function load_suaNguoiDung($maDangNhap)
     {
@@ -74,9 +85,9 @@ class QLyNguoiDung extends CI_Controller {
         {
             $this->load->library('form_validation');
             //Kiểm tra các điều kiện hợp lệ cơ bản
-            $this->form_validation->set_rules('TenNguoiDung', 'Ten dang nhap', 'required|min_length[3]');
-            $this->form_validation->set_rules('MatKhau', 'Mat khau', 'required|min_length[3]');
-            $this->form_validation->set_rules('XacNhanMatKhau', 'Xac nhan mat khau', 'required|matches[MatKhau]');
+            $this->form_validation->set_rules('TenNguoiDung', 'Tên người dùng', 'required|min_length[3]');
+            $this->form_validation->set_rules('MatKhau', 'Mật khẩu', 'required|min_length[3]');
+            $this->form_validation->set_rules('XacNhanMatKhau', 'Xác nhận mật khẩu', 'required|matches[MatKhau]');
 
             if($this->form_validation->run() == TRUE)
             {
@@ -91,6 +102,7 @@ class QLyNguoiDung extends CI_Controller {
                 {
                     if($item['TenNguoiDung'] == $tenNguoiDung)
                     {
+                        $this->session->set_flashdata('msg','Tên người dùng đã tồn tại!');
                         $this->load_themNguoiDung();
                         return;
                     }
@@ -105,6 +117,7 @@ class QLyNguoiDung extends CI_Controller {
                 // $this->form_validation->set_message('Ten dang nhap', 'Invalid username or password');
 			    // return;
                 // redirect('/QLyNguoiDung/Load_themNguoiDung');
+                $this->session->set_flashdata('msg','');
                 $this->load_themNguoiDung();
             }
 
@@ -132,9 +145,10 @@ class QLyNguoiDung extends CI_Controller {
         {
             $this->load->library('form_validation');
             //Kiểm tra các điều kiện hợp lệ cơ bản
-            $this->form_validation->set_rules('TenNguoiDung', 'Ten dang nhap', 'required|min_length[3]');
-            $this->form_validation->set_rules('MatKhau', 'Mat khau', 'required|min_length[3]');
-            $this->form_validation->set_rules('XacNhanMatKhau', 'Xac nhan mat khau', 'required|matches[MatKhau]');
+            $this->form_validation->set_rules('TenNguoiDung', 'Tên người dùng', 'required|min_length[3]');
+            $this->form_validation->set_rules('MatKhau', 'Mật khẩu mới', 'required|min_length[3]');
+            $this->form_validation->set_rules('XacNhanMatKhau', 'Xác nhận mật khẩu mới', 'required|matches[MatKhau]');
+            $this->form_validation->set_rules('XacNhanMatKhauCu', 'Xác nhận mật khẩu cũ', 'required');
 
             if($this->form_validation->run() == TRUE)
             {
@@ -142,6 +156,7 @@ class QLyNguoiDung extends CI_Controller {
                
                 $tenNguoiDung = $this->input->post('TenNguoiDung');
                 $matKhau = $this->input->post('MatKhau');
+                $matKhauCu = $this->input->post('XacNhanMatKhauCu');
                 $loaiNguoiDung = 'User';
                 if($this->session->userdata['LoaiNguoiDung'] == "Admin")
                 {
@@ -149,15 +164,25 @@ class QLyNguoiDung extends CI_Controller {
                 }             
                 
                 //Kiểm lỗi trùng Tên đăng nhập
-                $ds_nguoidung = $this->m_NguoiDung->ds_nguoidung();
-                foreach($ds_nguoidung as $item)
-                {
-                    if($item['MaNguoiDung'] != $maNguoiDung && $item['TenNguoiDung'] == $tenNguoiDung)
-                    {
-                        $this->load_suaNguoiDung($maNguoiDung);
+                // $ds_nguoidung = $this->m_NguoiDung->ds_nguoidung();
+                // foreach($ds_nguoidung as $item)
+                // {
+                //     if($item['MaNguoiDung'] != $maNguoiDung && $item['TenNguoiDung'] == $tenNguoiDung)
+                //     {
+                //         $this->load_suaNguoiDung($maNguoiDung);
 
-                        return;
-                    }
+                //         return;
+                //     }
+                // }
+
+                //Kiểm tra mật khẩu cũ
+                $matKhauXacNhan = $this->m_NguoiDung->tim_nguoidung_ten($tenNguoiDung);
+                $isCorrect = password_verify($matKhauCu, $matKhauXacNhan['MatKhau']);
+				if( !($matKhauXacNhan['MatKhau'] == $matKhauCu|| $isCorrect))   //còn  kiem tra mk chưa băm
+				{
+                    $this->session->set_flashdata('msg','Mật khẩu cũ không chính xác!');
+                    $this->load_suaNguoiDung($maNguoiDung);
+                    return;
                 }
 
                 //Các lỗi đã được xử => Sửa thông tin người dùng
@@ -177,6 +202,7 @@ class QLyNguoiDung extends CI_Controller {
             }
             else
             {
+                $this->session->set_flashdata('msg','');
                 $this->load_suaNguoiDung($maNguoiDung);
             }
 
