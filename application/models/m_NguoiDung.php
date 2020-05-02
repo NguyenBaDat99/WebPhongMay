@@ -31,8 +31,9 @@ class m_NguoiDung extends CI_Model{
             }
             $maNguoiDung++;
         }
+         $maHoaMK= password_hash($matKhau, PASSWORD_DEFAULT);
         $this->db->query("insert into nguoi_dung values("
-        .$maNguoiDung.",'".$tenNguoiDung."', '".$matKhau."', '".$loaiNguoiDung."')");
+        .$maNguoiDung.",'".$tenNguoiDung."', '".$maHoaMK."', '".$loaiNguoiDung."')");
         //$this->db->query("insert into nguoi_dung values(5,'".$tenNguoiDung."', '".$matKhau."')");
     }
 
@@ -45,6 +46,7 @@ class m_NguoiDung extends CI_Model{
         }
         else
         {
+            
             // $query=$this->db->query("call tim_nguoidung('".$thongTin."');");
             // return $query->result_array();
             $query = $this->db->query("call tim_nguoidung('".$thongTin."')");
@@ -68,10 +70,18 @@ class m_NguoiDung extends CI_Model{
         return $query->row_array();
     }
 
-    public function sua_nguoidung($maNguoiDung, $tenNguoiDung, $matKhau, $loaiNguoiDung)
+    public function sua_nguoidung($maNguoiDung, $tenNguoiDung, $matKhau)
     {
-        $this->db->query("update nguoi_dung set TenNguoiDung='".$tenNguoiDung."',MatKhau='".$matKhau."', LoaiNguoiDung='".$loaiNguoiDung."' where MaNguoiDung=".$maNguoiDung."");
+        $maHoaMK= password_hash($matKhau, PASSWORD_DEFAULT);
+        $this->db->query("update nguoi_dung set TenNguoiDung='".$tenNguoiDung."',MatKhau='".$maHoaMK."' where MaNguoiDung=".$maNguoiDung."");
     }
+
+    public function sua_nguoidung_loainguoidung($maNguoiDung, $loaiNguoiDung)
+    {
+        $this->db->query("update nguoi_dung set LoaiNguoiDung='".$loaiNguoiDung."' where MaNguoiDung=".$maNguoiDung."");
+    }
+    
+
 
     
 

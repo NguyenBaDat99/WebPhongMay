@@ -211,7 +211,7 @@
                 echo '<td>'.$item['NganhHoc'].'</td>';
                 echo '<td>'.$item['SoTinChi'].'</td>';
                 echo '<td>'.$item['GiangVienPhuTrach'].'</td>';
-                echo '<td>'.$item['TrangThai'].'</td>';
+                echo '<td><i class="fas fa-lock-open"></i>&nbsp;&nbsp;'.$item['TrangThai'].'</td>';
                 if($this->session->userdata('LoaiNguoiDung') == "Admin") //Kiểm tra loại người dùng là Admin để mở chức năng sửa xóa
                 {
                     echo '<td>
@@ -232,7 +232,7 @@
                 echo '<td>'.$item['NganhHoc'].'</td>';
                 echo '<td>'.$item['SoTinChi'].'</td>';
                 echo '<td>'.$item['GiangVienPhuTrach'].'</td>';
-                echo '<td>'.$item['TrangThai'].'</td>';
+                echo '<td><i class="fas fa-lock"></i>&nbsp;&nbsp;'.$item['TrangThai'].'</td>';
                 if($this->session->userdata('LoaiNguoiDung') == "Admin")
                 {
                     echo '<td>
