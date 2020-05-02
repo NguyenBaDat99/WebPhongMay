@@ -195,20 +195,20 @@
             <ul class="list-unstyled ">
                 <p style="background-color: darkturquoise">Danh sách chức năng</p>                
                 <li>
-                    <a href="http://localhost/WebPhongMay/index.php/QLyPhongMay">Quản lý phòng máy</a>
+                    <a href="http://localhost/WebPhongMay/index.php/QLyPhongMay"><i class="fas fa-desktop"></i>&nbsp;&nbsp;Quản lý phòng máy</a>
                 </li>
                 <li>
-                    <a href="http://localhost/WebPhongMay/index.php/QLyMonHoc">Quản lý môn học</a>
+                    <a href="http://localhost/WebPhongMay/index.php/QLyMonHoc"><i class="fas fa-book"></i>&nbsp;&nbsp;Quản lý môn học</a>
                 </li>
                 <li>
-                    <a href="http://localhost/WebPhongMay/index.php/QLyThoiKhoaBieu">Quản lý thời khóa biểu</a>
+                    <a href="http://localhost/WebPhongMay/index.php/QLyThoiKhoaBieu"><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;Quản lý thời khóa biểu</a>
                 </li>
 
                 <?php
                     if($this->session->userdata('LoaiNguoiDung') == 'Admin')
                     {?>
                 <li>
-                    <a href="http://localhost/WebPhongMay/index.php/QLyNguoiDung">Quản lý người dùng</a>
+                    <a href="http://localhost/WebPhongMay/index.php/QLyNguoiDung"><i class="fas fa-users"></i>&nbsp;&nbsp;Quản lý người dùng</a>
                 </li>
 
                 <?php
@@ -245,7 +245,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-bars"></i>&nbsp;
                         <span>Website Quản lý phòng máy</span>
                     </button>
                     <span></span>
@@ -255,13 +255,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyPhongMay">Phòng máy</a>
+                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyPhongMay"><i class="fas fa-desktop"></i>&nbsp;&nbsp;Phòng máy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyMonHoc">Môn học</a>
+                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyMonHoc"><i class="fas fa-book"></i>&nbsp;&nbsp;Môn học</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyThoiKhoaBieu">Thời khóa biểu</a>
+                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyThoiKhoaBieu"><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;Thời khóa biểu</a>
                             </li>
 
                             <?php
@@ -269,7 +269,7 @@
                                 {?>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyNguoiDung">Người dùng</a>
+                                <a class="nav-link" href="http://localhost/WebPhongMay/index.php/QLyNguoiDung"><i class="fas fa-users"></i>&nbsp;&nbsp;Người dùng</a>
                             </li>
 
                             <?php
@@ -278,13 +278,13 @@
                     </div>
                     <div class="dropdown">
                         <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php echo $this->session->userdata('TenNguoiDung');?>
+                        <i class="fas fa-id-card"></i>&nbsp;&nbsp;<?php echo $this->session->userdata('TenNguoiDung');?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href= <?php echo "http://localhost/WebPhongMay/index.php/QLyNguoiDung/load_suaNguoiDung/".$this->session->userdata('MaNguoiDung');?>>Tùy chỉnh</a>
+                            <a class="dropdown-item" href= <?php echo "http://localhost/WebPhongMay/index.php/QLyNguoiDung/load_suaNguoiDung/".$this->session->userdata('MaNguoiDung');?>><i class="fas fa-user-cog"></i>&nbsp;&nbsp;Tùy chỉnh</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href=" http://localhost/WebPhongMay/index.php/login/logout">Đăng xuất</a>
+                            <a class="dropdown-item" href=" http://localhost/WebPhongMay/index.php/login/logout"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Đăng xuất</a>
                         </div>
                     </div>
                 </div>
