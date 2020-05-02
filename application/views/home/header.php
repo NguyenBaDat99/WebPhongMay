@@ -277,7 +277,7 @@
                         </ul>
                     </div>
                     <div class="dropdown">
-                        <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-info" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-id-card"></i>&nbsp;&nbsp;<?php echo $this->session->userdata('TenNguoiDung');?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
