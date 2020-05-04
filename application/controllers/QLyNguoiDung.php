@@ -13,21 +13,21 @@ class QLyNguoiDung extends CI_Controller {
         if(!$this->session->userdata('MaNguoiDung')){
         return redirect('Login');
         }
-        // không cho user truy cap bang link 
-        // if($this->session->userdata['LoaiNguoiDung'] != "Admin"){
-        // return redirect('Login');
-        // }
+
     }
 
 	public function index()
 	{
+        // không cho user truy cap bang link 
+        if($this->session->userdata['LoaiNguoiDung'] != "Admin"){
+            echo '<script>
+                    window.history.back();
+                </script>';
+        }
         $this->load->view('home/header');
-
         $dsNguoiDung['dsNguoiDung'] = $this->m_NguoiDung->ds_nguoidung();
         $view['content'] = $this->load->view('home/NguoiDung/v_QLyNguoiDung', $dsNguoiDung);
-
         $this->load->view('home/footer');
-
         // $data['content'] = 'home/v_QLyNguoiDung';
 		// $this->load->view('home/index', $data);
     }
