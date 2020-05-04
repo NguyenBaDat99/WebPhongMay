@@ -52,53 +52,53 @@
                 </td>
                 </tr>';         
             }
-            //Modal sửa người dùng
-            echo '<div class="modal fade" id="modalSua'.$item['MaNguoiDung'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Sửa loại người dùng</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">                          
-                  <form method="POST" action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/suaLoaiNguoiDung">
-                    <div class="form-row">
-                      <div class="form-group col-md-4">
-                        <label>Mã người dùng</label>
-                        <input type="text" name="MaNguoiDung" class="form-control" id="inputMaNguoiDung" value="'.$item['MaNguoiDung'].'" readonly autofocus>
+              //Modal sửa người dùng
+              echo '<div class="modal fade" id="modalSua'.$item['MaNguoiDung'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sửa loại người dùng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">                          
+                    <form method="POST" action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/suaLoaiNguoiDung">
+                      <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <label>Mã người dùng</label>
+                          <input type="text" name="MaNguoiDung" class="form-control" id="inputMaNguoiDung" value="'.$item['MaNguoiDung'].'" readonly autofocus>
+                        </div>
+                        <div class="form-group col-md-8">
+                          <label>Tên người dùng</label>
+                          <input type="text" name="TenNguoiDung" class="form-control" id="inputTenNguoiDung" value="'.$item['TenNguoiDung'].'" readonly autofocus>
+                        </div>
                       </div>
-                      <div class="form-group col-md-8">
-                        <label>Tên người dùng</label>
-                        <input type="text" name="TenNguoiDung" class="form-control" id="inputTenNguoiDung" value="'.$item['TenNguoiDung'].'" readonly autofocus>
-                      </div>
-                    </div>
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label>Loại người dùng</label>
-                                <select id="inputLoaiNguoiDung" name="LoaiNguoiDung" class="form-control">';
-                                  if($item['LoaiNguoiDung'] == 'User')
-                                  {
-                                    echo '<option checked>User</option>
-                                          <option>Admin</option>';
-                                  }
-                                  else
-                                  {
-                                    echo '<option checked>Admin</option>
-                                          <option>User</option>';
-                                  }
-                                echo '</select>
-                          </div>
-                      </div>
-                        <div class="dropdown-divider"></div>
-                        <input type="submit" name="btnSua" class="btn btn-primary left" value="Sửa người dùng">
-                        <button type="button" class="btn btn-secondary right" data-dismiss="modal">Hủy</button>
-                      </form>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label>Loại người dùng</label>
+                                  <select id="inputLoaiNguoiDung" name="LoaiNguoiDung" class="form-control">';
+                                    if($item['LoaiNguoiDung'] == 'User')
+                                    {
+                                      echo '<option checked>User</option>
+                                            <option>Admin</option>';
+                                    }
+                                    else
+                                    {
+                                      echo '<option checked>Admin</option>
+                                            <option>User</option>';
+                                    }
+                                  echo '</select>
+                            </div>
+                        </div>
+                          <div class="dropdown-divider"></div>
+                          <input type="submit" name="btnSua" class="btn btn-primary left" value="Sửa người dùng">
+                          <button type="button" class="btn btn-secondary right" data-dismiss="modal">Hủy</button>
+                        </form>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>';
+            </div>';
       //Modal xóa Người dùng
       echo '<div class="modal fade" id="modalXoa'.$item['MaNguoiDung'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
