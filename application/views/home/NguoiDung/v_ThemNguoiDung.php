@@ -4,7 +4,7 @@
 
 <form action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/themNguoiDung" style="padding: 20px;" method="post">
     <label>Tên người dùng (Tên đăng nhập):</label>
-    <input class="form-control" style="width: 300px;" name="TenNguoiDung" placeholder="Nhập tên người dùng" >
+    <input class="form-control" style="width: 300px;" name="TenNguoiDung" placeholder="Nhập tên người dùng" autofocus>
     <label>Mật khẩu:</label>
     <input class="form-control" style="width: 300px;" name="MatKhau" type="password" placeholder="Nhập mật khẩu" >
     <label>Xác nhận mật khẩu:</label>

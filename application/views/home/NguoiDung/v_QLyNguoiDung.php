@@ -1,4 +1,5 @@
 <!-- <h3>Danh sách người dùng</h3> -->
+
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand">Danh sách người dùng</a>
   <form class="form-inline" action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/tim_NguoiDung" method="post">
@@ -7,7 +8,7 @@
     <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm">
   </form>
 </nav>
-
+<div class="container-fluid">
 <table class="table table-striped">
     <thead>
       <tr>
@@ -105,9 +106,6 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Xóa người dùng</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                 </div>
                 <div class="modal-body">
                   Bạn có muốn xóa người dùng có mã là: '.$item['MaNguoiDung'].' ('.$item['TenNguoiDung'].')
@@ -129,6 +127,13 @@
   <form action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/load_themNguoiDung" method="post">
     &nbsp;&nbsp;&nbsp;<input type="submit" name="btnThem" class="btn btn-primary" value="Thêm người dùng">
   </form>
+</div>
+<?php
+  $error = $this->session->flashdata('msg');
+    if($error){
+      echo  '<div class="alert alert-danger" style="width: 300px;margin-left: 20px;">'.$this->session->flashdata('msg').'</div>';
+    }
+?>
 
 
   

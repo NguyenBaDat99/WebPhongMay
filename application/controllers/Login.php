@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 
 							// $data['content'] = 'home/v_QLyNguoiDung';
 							// $this->load->view('home/index', $data);
-							$data['content'] = 'home/PhongMay/v_QLyPhongMay';
+							$data['content'] = 'home/ThoiKhoaBieu/v_QLyThoiKhoaBieu';
 							$this->load->view('home/index', $data);
 							//redirect('/QLyPhongMay');
 							return;
@@ -56,7 +56,7 @@ class Login extends CI_Controller {
 						
 							// $data['content'] = 'home/v_QLyNguoiDung';
 							// $this->load->view('home/index', $data);
-							$data['content'] = 'home/PhongMay/v_QLyPhongMay';
+							$data['content'] = 'home/ThoiKhoaBieu/v_QLyThoiKhoaBieu';
 							$this->load->view('home/index', $data);
 							//redirect('/QLyPhongMay');
 							return;
