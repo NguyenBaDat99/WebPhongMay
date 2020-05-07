@@ -1,9 +1,8 @@
-<nav class="navbar navbar-light bg-light">
+<<nav class="navbar navbar-light bg-light">
   <a class="navbar-brand">Danh sách phòng máy</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required disabled>
-    <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Tìm kiếm</button> -->
-    <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm" disabled>
+  <form class="form-inline" action="http://localhost/WebPhongMay/index.php/QLyPhongMay/tim_PhongMay" method="post">
+    <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required maxlength="20">
+    <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm">
   </form>
 </nav>
 <div class="container-fluid">

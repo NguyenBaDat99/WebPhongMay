@@ -1,12 +1,13 @@
 <!-- <h3>Danh sách người dùng</h3> -->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand">Danh sách người dùng</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required disabled>
+  <form class="form-inline" action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/tim_NguoiDung" method="post">
+    <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required maxlength="20">
     <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Tìm kiếm</button> -->
-    <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm" disabled>
+    <input type="submit" name="btnTimKiem" class="btn btn-outline-dark" value="Tìm kiếm">
   </form>
 </nav>
+<div class="container-fluid">
 <table class="table table-striped">
     <thead>
       <tr>
@@ -121,10 +122,11 @@
     ?>
     </tbody>
   </table>
+
   <form action="http://localhost/WebPhongMay/index.php/QLyNguoiDung">
-    &nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-dark" value="Quay lại">
+    <input type="submit" class="btn btn-dark" value="Quay lại">
   </form>
-  
+  </div>
 
 
 
