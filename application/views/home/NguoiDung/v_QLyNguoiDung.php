@@ -1,7 +1,7 @@
 <!-- <h3>Danh sách người dùng</h3> -->
 
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Danh sách người dùng</a>
+  <a class="navbar-brand">Danh sách người dùng </a>
   <form class="form-inline" action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/tim_NguoiDung" method="post">
     <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required maxlength="20">
     <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Tìm kiếm</button> -->
@@ -125,7 +125,7 @@
   </table>
   
   <form action="http://localhost/WebPhongMay/index.php/QLyNguoiDung/load_themNguoiDung" method="post">
-    &nbsp;&nbsp;&nbsp;<input type="submit" name="btnThem" class="btn btn-primary" value="Thêm người dùng">
+    <input type="submit" name="btnThem" class="btn btn-primary" value="Thêm người dùng">
   </form>
 </div>
 <?php

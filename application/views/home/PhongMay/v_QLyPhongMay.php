@@ -28,7 +28,7 @@
           <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalXoa'.$item['MaPhongMay'].'">
                   Xóa
           </button> &emsp; 
-          <input type="submit" name="btnXem" formaction="http://localhost/WebPhongMay/index.php/QLyPhongMay" class="btn btn-outline-info" value="Xem">    
+          <input type="submit" formaction="http://localhost/WebPhongMay/index.php/QLyMay/load_TTMayCon/'.$item['MaPhongMay'].'" method="post"" name="btnXem" class="btn btn-outline-info" value="Xem"> 
           </form>       
           </td>
           </tr>';?>

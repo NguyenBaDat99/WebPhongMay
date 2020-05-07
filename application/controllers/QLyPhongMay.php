@@ -4,6 +4,9 @@ class QLyPhongMay extends CI_Controller {
     {
         parent::__construct();
         $this->load->Model('m_PhongMay');
+        if(!$this->session->userdata('MaNguoiDung')){
+        return redirect('Login');
+        }
     }
     public function index()
     {   
@@ -52,7 +55,6 @@ class QLyPhongMay extends CI_Controller {
                             }
                         }
                         $this->m_PhongMay->them_phongmay($maPhongMay,$TenPhongMay);
-                        //echo "<script>alert('Thêm thành công..!!');</script>";
                         $this->index();
                         
             }
