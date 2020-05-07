@@ -65,16 +65,19 @@
                       <input class="form-control" style="width: 300px;" name="MaPhongMay" value="'.$item['MaPhongMay'].'" readonly>
                       <label>Tên phòng máy:</label>
                       <input class="form-control" style="width: 300px;" name="TenPhongMay" value="'.$item['TenPhongMay'].'"
-                      <br/>
                   </div>
-                  <div class="modal-footer">
-                    <button type="btnHuy" class="btn btn-danger" data-dismiss="modal">Hủy</button>    
-                    <input type="submit" name="btnSua" class="btn btn-primary" value="Lưu">
+                  <br>
+                
+                  <div class="modal-footer"></div>
+                    <input type="submit" name="btnSua" class="btn btn-primary" value="Lưu phòng máy">
+                    <button type="btnHuy" class="btn btn-danger" data-dismiss="modal">Hủy</button>
                     </form>
-                  </div>
+
+                    
                 </div>
               </div>
-            </div>';      
+            </div>
+            ';      
           }
           ?>   
   </tbody>

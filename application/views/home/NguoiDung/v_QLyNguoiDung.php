@@ -94,7 +94,7 @@
                         </div>
                           <div class="dropdown-divider"></div>
                           <input type="submit" name="btnSua" class="btn btn-primary left" value="Sửa người dùng">
-                          <button type="button" class="btn btn-secondary right" data-dismiss="modal">Hủy</button>
+                          <button type="button" class="btn btn-danger right" data-dismiss="modal">Hủy</button>
                         </form>
                   </div>
                 </div>
