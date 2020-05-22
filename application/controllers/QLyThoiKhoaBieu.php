@@ -8,17 +8,30 @@ class QLyThoiKhoaBieu extends CI_Controller {
         parent::__construct();
         $this->load->library('session');
         $this->load->helper('url');
-        if(!$this->session->userdata('MaNguoiDung')){
-        return redirect('Login');
-    }
-        // $this->load->Model("_Model");
-}
+        $this->load->Model("m_ThoiKhoaBieu");
 
-public function index()
-{
-    $data['content'] = 'home/ThoiKhoaBieu/v_QLyThoiKhoaBieu';
-    $this->load->view('home/index', $data);
-}
+        if(!$this->session->userdata('MaNguoiDung')){
+            return redirect('Login');
+        }
+        $GLOBALS['dsThoiKhoaBieu']= $this->m_ThoiKhoaBieu->ds_thoikhoabieu();
+    }
+
+    public function index()
+    {
+        $this->load->view('home/header');
+        
+        if($this->session->userdata('LoaiNguoiDung') == "Admin")
+        {
+            $this->load->view('home/ThoiKhoaBieu/v_QLyThoiKhoaBieu_Admin', $GLOBALS);
+        }
+        else
+        {
+            $this->load->view('home/ThoiKhoaBieu/v_QLyThoiKhoaBieu_User', $GLOBALS);
+        }
+        
+
+        $this->load->view('home/footer');
+    }
 }
 
 ?>

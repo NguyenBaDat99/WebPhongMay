@@ -1,9 +1,6 @@
-<h4>Thời khóa biểu</h4>
-<?php
-    if($this->session->userdata('LoaiNguoiDung') == "Admin")
-    {?>
-        <!-- Code HTML -->
-        <table class="table table-striped">
+<h4>Thời khóa biểu Admin</h4>
+
+<table class="table table-striped">
         <thead>
             <tr>
             <th scope="col">Mã thời khóa biểu</th>
@@ -42,10 +39,3 @@
             ?>
         </tbody>
         </table>
-        <!--  -->
-
-    <?php }
-    else{?>
-        
-    <?php }
-    ?>   

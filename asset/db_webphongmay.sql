@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 29, 2020 at 05:24 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 22, 2020 lúc 06:15 PM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.2.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,16 +18,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_webphongmay`
+-- Cơ sở dữ liệu: `db_webphongmay`
 --
 CREATE DATABASE IF NOT EXISTS `db_webphongmay` DEFAULT CHARACTER SET utf8 COLLATE utf8_vietnamese_ci;
 USE `db_webphongmay`;
 
 DELIMITER $$
 --
--- Procedures
+-- Thủ tục
 --
-DROP PROCEDURE IF EXISTS `tim_monhoc`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `tim_monhoc` (IN `tt` VARCHAR(30))  BEGIN
 Select * 
     from mon_hoc
@@ -39,7 +37,6 @@ Select *
             TrangThai = tt;
 END$$
 
-DROP PROCEDURE IF EXISTS `tim_nguoidung`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `tim_nguoidung` (IN `tt` VARCHAR(20))  BEGIN
 	Select * 
     from nguoi_dung
@@ -52,10 +49,9 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `may_con`
+-- Cấu trúc bảng cho bảng `may_con`
 --
 
-DROP TABLE IF EXISTS `may_con`;
 CREATE TABLE `may_con` (
   `MaMayCon` varchar(10) COLLATE utf8_vietnamese_ci NOT NULL,
   `TinhTrang` varchar(20) COLLATE utf8_vietnamese_ci NOT NULL,
@@ -63,7 +59,7 @@ CREATE TABLE `may_con` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `may_con`
+-- Đang đổ dữ liệu cho bảng `may_con`
 --
 
 INSERT INTO `may_con` (`MaMayCon`, `TinhTrang`, `MaPhongMay`) VALUES
@@ -83,10 +79,9 @@ INSERT INTO `may_con` (`MaMayCon`, `TinhTrang`, `MaPhongMay`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mon_hoc`
+-- Cấu trúc bảng cho bảng `mon_hoc`
 --
 
-DROP TABLE IF EXISTS `mon_hoc`;
 CREATE TABLE `mon_hoc` (
   `MaMonHoc` varchar(20) COLLATE utf8_vietnamese_ci NOT NULL,
   `TenMonHoc` varchar(30) COLLATE utf8_vietnamese_ci NOT NULL,
@@ -97,7 +92,7 @@ CREATE TABLE `mon_hoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `mon_hoc`
+-- Đang đổ dữ liệu cho bảng `mon_hoc`
 --
 
 INSERT INTO `mon_hoc` (`MaMonHoc`, `TenMonHoc`, `NganhHoc`, `SoTinChi`, `GiangVienPhuTrach`, `TrangThai`) VALUES
@@ -119,10 +114,9 @@ INSERT INTO `mon_hoc` (`MaMonHoc`, `TenMonHoc`, `NganhHoc`, `SoTinChi`, `GiangVi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nguoi_dung`
+-- Cấu trúc bảng cho bảng `nguoi_dung`
 --
 
-DROP TABLE IF EXISTS `nguoi_dung`;
 CREATE TABLE `nguoi_dung` (
   `MaNguoiDung` int(11) NOT NULL,
   `TenNguoiDung` varchar(30) COLLATE utf8_vietnamese_ci NOT NULL,
@@ -131,7 +125,7 @@ CREATE TABLE `nguoi_dung` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `nguoi_dung`
+-- Đang đổ dữ liệu cho bảng `nguoi_dung`
 --
 
 INSERT INTO `nguoi_dung` (`MaNguoiDung`, `TenNguoiDung`, `MatKhau`, `LoaiNguoiDung`) VALUES
@@ -144,17 +138,16 @@ INSERT INTO `nguoi_dung` (`MaNguoiDung`, `TenNguoiDung`, `MatKhau`, `LoaiNguoiDu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `phong_may`
+-- Cấu trúc bảng cho bảng `phong_may`
 --
 
-DROP TABLE IF EXISTS `phong_may`;
 CREATE TABLE `phong_may` (
   `MaPhongMay` int(11) NOT NULL,
   `TenPhongMay` varchar(30) COLLATE utf8_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `phong_may`
+-- Đang đổ dữ liệu cho bảng `phong_may`
 --
 
 INSERT INTO `phong_may` (`MaPhongMay`, `TenPhongMay`) VALUES
@@ -163,34 +156,70 @@ INSERT INTO `phong_may` (`MaPhongMay`, `TenPhongMay`) VALUES
 (3, 'PM03'),
 (4, 'PM04');
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Cấu trúc bảng cho bảng `thoi_khoa_bieu`
+--
+
+CREATE TABLE `thoi_khoa_bieu` (
+  `MaThoiKhoaBieu` int(11) NOT NULL,
+  `MaMonHoc` varchar(20) COLLATE utf8_vietnamese_ci NOT NULL,
+  `TenMonHoc` varchar(30) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `MaGiangVien` int(11) NOT NULL,
+  `TenGiangVien` varchar(30) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `MaPhongMay` int(11) NOT NULL,
+  `TenPhongMay` varchar(30) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `BuoiHoc` int(11) DEFAULT NULL,
+  `ThuHoc` int(11) DEFAULT NULL,
+  `SoBuoi` int(11) DEFAULT NULL,
+  `ThoiGianBatDau` date DEFAULT NULL,
+  `ThoiGianKetThuc` date DEFAULT NULL,
+  `GhiChu` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `thoi_khoa_bieu`
+--
+
+INSERT INTO `thoi_khoa_bieu` (`MaThoiKhoaBieu`, `MaMonHoc`, `TenMonHoc`, `MaGiangVien`, `TenGiangVien`, `MaPhongMay`, `TenPhongMay`, `BuoiHoc`, `ThuHoc`, `SoBuoi`, `ThoiGianBatDau`, `ThoiGianKetThuc`, `GhiChu`) VALUES
+(1, 'FBMA1', 'Toán cao cấp A1', 4, 'LeThanh', 1, 'PM01', 1, 2, 10, '0000-00-00', '2020-07-30', NULL),
+(2, 'ITW02', 'Lập trình web', 2, 'LeBac', 2, 'PM02', 2, 7, 9, '2020-05-22', '2020-07-30', NULL);
+
+--
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `may_con`
+-- Chỉ mục cho bảng `may_con`
 --
 ALTER TABLE `may_con`
   ADD PRIMARY KEY (`MaMayCon`);
 
 --
--- Indexes for table `mon_hoc`
+-- Chỉ mục cho bảng `mon_hoc`
 --
 ALTER TABLE `mon_hoc`
   ADD PRIMARY KEY (`MaMonHoc`);
 
 --
--- Indexes for table `nguoi_dung`
+-- Chỉ mục cho bảng `nguoi_dung`
 --
 ALTER TABLE `nguoi_dung`
   ADD PRIMARY KEY (`MaNguoiDung`),
   ADD UNIQUE KEY `TenNguoiDung` (`TenNguoiDung`);
 
 --
--- Indexes for table `phong_may`
+-- Chỉ mục cho bảng `phong_may`
 --
 ALTER TABLE `phong_may`
   ADD PRIMARY KEY (`MaPhongMay`);
+
+--
+-- Chỉ mục cho bảng `thoi_khoa_bieu`
+--
+ALTER TABLE `thoi_khoa_bieu`
+  ADD PRIMARY KEY (`MaThoiKhoaBieu`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

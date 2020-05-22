@@ -46,18 +46,16 @@ class Login extends CI_Controller {
 							setcookie('tenNguoiDung_cookie',$tenNguoiDung,time() +(86400*30),"/");
 							setcookie('matKhau_cookie',$matKhau,time() +(86400*30),"/");
 
-							// $data['content'] = 'home/v_QLyNguoiDung';
-							// $this->load->view('home/index', $data);
-							$data['content'] = 'home/ThoiKhoaBieu/v_QLyThoiKhoaBieu';
+							$data['content'] = 'home/intro';
 							$this->load->view('home/index', $data);
+
 							//redirect('/QLyPhongMay');
 							return;
 						}
 						
-							// $data['content'] = 'home/v_QLyNguoiDung';
-							// $this->load->view('home/index', $data);
-							$data['content'] = 'home/ThoiKhoaBieu/v_QLyThoiKhoaBieu';
+							$data['content'] = 'home/intro';
 							$this->load->view('home/index', $data);
+
 							//redirect('/QLyPhongMay');
 							return;
 					}			

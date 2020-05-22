@@ -139,7 +139,7 @@ class QLyNguoiDung extends CI_Controller {
             }
             else
             {
-                $data['content'] = 'home/PhongMay/v_QLyPhongMay';
+                $data['content'] = 'home/intro';
                 $this->load->view('home/index', $data);
                 //redirect('/QLyPhongMay');
             }
@@ -199,7 +199,7 @@ class QLyNguoiDung extends CI_Controller {
                 }
                 else
                 {
-                    $data['content'] = 'home/PhongMay/v_QLyPhongMay';
+                    $data['content'] = 'home/intro';
                     $this->load->view('home/index', $data);
                     //redirect('/QLyPhongMay');
                 }
