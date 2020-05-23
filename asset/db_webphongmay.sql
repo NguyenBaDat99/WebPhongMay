@@ -120,7 +120,7 @@ INSERT INTO `mon_hoc` (`MaMonHoc`, `TenMonHoc`, `NganhHoc`, `SoTinChi`, `GiangVi
 CREATE TABLE `nguoi_dung` (
   `MaNguoiDung` int(11) NOT NULL,
   `TenNguoiDung` varchar(30) COLLATE utf8_vietnamese_ci NOT NULL,
-  `MatKhau` varchar(30) COLLATE utf8_vietnamese_ci NOT NULL,
+  `MatKhau` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
   `LoaiNguoiDung` varchar(30) COLLATE utf8_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
