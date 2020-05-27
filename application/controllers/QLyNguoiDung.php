@@ -189,7 +189,7 @@ class QLyNguoiDung extends CI_Controller {
                     return;
                 }
 
-                //Các lỗi đã được xử => Sửa thông tin người dùng
+                //Các lỗi đã được xử => Sửa thông tin người dùng        
                 $this->m_NguoiDung->sua_nguoidung($maNguoiDung, $tenNguoiDung, $matKhau, $loaiNguoiDung);
                  echo "<script>alert('Sửa thành công..!!');</script>";
                 // $this->index();

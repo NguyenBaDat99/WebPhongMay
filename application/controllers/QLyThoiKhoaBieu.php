@@ -14,6 +14,9 @@ class QLyThoiKhoaBieu extends CI_Controller {
             return redirect('Login');
         }
         $GLOBALS['dsThoiKhoaBieu']= $this->m_ThoiKhoaBieu->ds_thoikhoabieu();
+        $GLOBALS['dsThoiKhoaBieu_CaNhan']= $this->m_ThoiKhoaBieu->ds_thoikhoabieu_nguoidung($this->session->userdata('MaNguoiDung')
+    );
+
     }
 
     public function index()
