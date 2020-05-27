@@ -73,7 +73,7 @@ class Login extends CI_Controller {
 	{
 		$this->session->sess_destroy();
 		$this->session->unset_userdata('nguoidungmoi');
-		echo "<script>alert('Đăng xuất..!!');window.location='http://localhost/WebPhongMay/index.php'</script>";
+		echo "<script>window.location='http://localhost/WebPhongMay/index.php'</script>";
 	}
 
 
