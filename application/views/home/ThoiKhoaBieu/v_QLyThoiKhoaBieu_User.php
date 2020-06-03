@@ -235,15 +235,20 @@ td{
 foreach($dsThoiKhoaBieu_CaNhan as $item)
 {
 
+    $date = $item ['ThoiGianKetThuc'];
+    $today = date("Y-m-d");
     $test = rand(10,255);
+ 
 
+    if ($date >= $today) {
 
-    ?>
-    <script type="text/javascript">
+         ?>
+
+           <script type="text/javascript">
 
      $(document).ready(function(){
 
-        $("#location-"+"<?php echo substr($item['BuoiHoc'],0,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("<?php  echo $item['TenMonHoc']; ?>" +"<?php  echo $item['MaMonHoc']; ?>");
+        $("#location-"+"<?php echo substr($item['BuoiHoc'],0,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("<?php  echo $item['TenMonHoc']; ?>" +" (<?php  echo $item['MaMonHoc']; ?>)");
         $("#location-"+"<?php echo substr($item['BuoiHoc'],1,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("Tên phòng máy: <?php  echo $item['TenPhongMay']; ?>" );
 
         $("#location-"+"<?php echo substr($item['BuoiHoc'],2,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("Thời gian bắt đầu: <?php  echo $item['ThoiGianBatDau']; ?>" );
@@ -279,10 +284,16 @@ foreach($dsThoiKhoaBieu_CaNhan as $item)
 
     <?php }
     ?>
-
-
 </script>
+
+    
+
+
+   
+ 
 <?php  
+}
+
 }      
 ?>
 
