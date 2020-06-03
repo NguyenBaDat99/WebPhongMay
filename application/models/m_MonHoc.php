@@ -12,6 +12,11 @@ class m_MonHoc extends CI_Model{
         return $query->result_array();
     }
 
+    public function ds_monhoc_open()
+    {
+        $query=$this->db->query("select * from mon_hoc where TrangThai='Open' ");
+        return $query->result_array();
+    }
 
     //Lấy ds môn học SẮP XẾP theo TÊN MÔN HỌC
     public function ds_monhoc_sapxep_tenMH($sapXep)
