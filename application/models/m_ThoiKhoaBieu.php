@@ -42,5 +42,10 @@ class m_ThoiKhoaBieu extends CI_Model{
         values(".$maTKB.", '".$maMH."', '".$tenMH."', ".$maGV.", '".$tenGV."', ".$maPM.", '".$tenPM."', '".$buoiHoc."', ".$thuHoc.", ".$soBuoi.", '".$tgBatDau."', DATE_ADD('".$tgBatDau."', INTERVAL ".$day." DAY), '".$ghiChu."')");
     }
 
+    public function xoa_thoikhoabieu($maThoiKhoaBieu)
+    {
+        $query = $this->db->query("delete from thoi_khoa_bieu where MaThoiKhoaBieu='".$maThoiKhoaBieu."'");
+    }
+
 }
 ?>

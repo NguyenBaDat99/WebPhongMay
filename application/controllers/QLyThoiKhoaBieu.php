@@ -69,4 +69,14 @@ class QLyThoiKhoaBieu extends CI_Controller
             }
         }
     }
+
+    public function xoaThoiKhoaBieu($maThoiKhoaBieu)
+    {
+        if($this->input->post('btnXoa') != '')
+        {
+            $this->m_ThoiKhoaBieu->xoa_thoikhoabieu($maThoiKhoaBieu);
+            $GLOBALS['dsThoiKhoaBieu'] = $this->m_ThoiKhoaBieu->ds_thoikhoabieu();
+            $this->index();
+        }
+    }
 }
