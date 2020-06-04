@@ -24,29 +24,37 @@
             </div>
             <div class="modal-body">
                 <form method="POST" action="http://localhost/WebPhongMay/index.php/QLyThoiKhoaBieu/themThoiKhoaBieu">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Môn học</label>
+                        <select id="inputMonHoc" name="MonHoc" class="form-control">
+                            <option selected></option>
+                            <?php
+                            // foreach ($dsMonHoc as $item) {
+                            //     echo '<option>' . $item['MaMonHoc'] . ' - ' . $item['TenMonHoc'] . '</option>';
+                            // }
+                            ?>
+                        </select>
+                    </div> -->
+                    <div class="form-group">
+                        <label>Môn học và Giảng viên</label>
                         <select id="inputMonHoc" name="MonHoc" class="form-control">
                             <!-- <option selected></option> -->
                             <?php
                             foreach ($dsMonHoc as $item) {
-                                echo '<option>' . $item['MaMonHoc'] . ' - ' . $item['TenMonHoc'] . '</option>';
+                                echo '<option>' . $item['MaMonHoc'] . ' - ' . $item['TenMonHoc'] . ' - ' . $item['GiangVienPhuTrach'] . '</option>';
                             }
                             ?>
                         </select>
+                        <!-- <select id="inputGiangVien" name="GiangVien" class="form-control">
+                                <option selected></option> -->
+                        <?php
+                        // foreach ($dsGiangVien as $item) {
+                        //     echo '<option>' . $item['MaNguoiDung'] . ' - ' . $item['TenNguoiDung'] . '</option>';
+                        // }
+                        ?>
+                        </select>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <label>Giảng viên</label>
-                            <select id="inputGiangVien" name="GiangVien" class="form-control">
-                                <!-- <option selected></option> -->
-                                <?php
-                                foreach ($dsGiangVien as $item) {
-                                    echo '<option>' . $item['MaNguoiDung'] . ' - ' . $item['TenNguoiDung'] . '</option>';
-                                }
-                                ?>
-                            </select>
-                        </div>
                         <div class="form-group col-md-4">
                             <label>Phòng máy</label>
                             <select id="inputPhongMay" name="PhongMay" class="form-control">
@@ -58,6 +66,14 @@
                                 ?>
                             </select>
                         </div>
+                        <div class="form-group col-md-8">
+                            <label>Thời gian bắt đầu</label>
+                            <input type="date" id="inputThoiGianBatDau" name="ThoiGianBatDau" value="2020-02-02" min="2020-02-02" style="width: 100%; text-align: center;">
+                        </div>
+                        <!-- <div class="form-group col-md-6">
+                            <label>Thời gian kết thúc</label>
+                            <input type="date" id="inputThoiGianKetThuc" name="ThoiGianKetThuc" value="2020-02-02" min="2020-02-02" style="width: 100%; text-align: center;">
+                        </div> -->
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-5">
@@ -88,16 +104,7 @@
                             <input type="number" name="SoBuoi" class="form-control" id="inputSoBuoi" placeholder="8" min="1" max="15" required>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Thời gian bắt đầu</label>
-                            <input type="date" id="inputThoiGianBatDau" name="ThoiGianBatDau" value="2020-02-02" min="2020-02-02" style="width: 100%; text-align: center;">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Thời gian kết thúc</label>
-                            <input type="date" id="inputThoiGianKetThuc" name="ThoiGianKetThuc" value="2020-02-02" min="2020-02-02" style="width: 100%; text-align: center;">
-                        </div>
-                    </div>
+
                     <div class="form-group">
                         <label>Ghi chú</label>
                         <textarea class="form-control" id="inputGhiChu" name="GhiChu"></textarea>

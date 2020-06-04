@@ -42,22 +42,24 @@ class QLyThoiKhoaBieu extends CI_Controller
     {
         if ($this->input->post('btnThem') != '') {
             $monHoc = explode(' - ', $_POST['MonHoc']);
-            $giangVien = explode(' - ', $_POST['GiangVien']);
+            // $giangVien = explode(' - ', $_POST['GiangVien']);
             $phongMay = explode(' - ', $_POST['PhongMay']);
+
+            $giangVien = $this->m_NguoiDung->tim_nguoidung_ten($monHoc[2]);
 
             $thuHoc = explode(' ', $_POST['ThuHoc']);
             $buoiHoc = explode(' ', $_POST['BuoiHoc']);
 
             $soBuoi = $_POST['SoBuoi'];
             $thoiGianBatDau = $_POST['ThoiGianBatDau'];
-            $thoiGianKetThuc = $_POST['ThoiGianKetThuc'];
+            // $thoiGianKetThuc = $_POST['ThoiGianKetThuc'];
             $ghiChu = $_POST['GhiChu'];
 
             $isTKBrong = $this->m_ThoiKhoaBieu->is_thoikhoabieutrung($phongMay[0], $buoiHoc[0], $thuHoc[0], $thoiGianBatDau);
 
             if ($isTKBrong == null) {
                 // echo 'Kiểm tra TKB không bị trùng. Được phép thêm TKB mới';
-                $this->m_ThoiKhoaBieu->them_thoikhoabieu($monHoc[0], $monHoc[1], $giangVien[0], $giangVien[1], $phongMay[0], $phongMay[1], $buoiHoc[0], $thuHoc[0], $soBuoi, $thoiGianBatDau, $thoiGianKetThuc, $ghiChu);
+                $this->m_ThoiKhoaBieu->them_thoikhoabieu($monHoc[0], $monHoc[1], $giangVien['MaNguoiDung'], $giangVien['TenNguoiDung'], $phongMay[0], $phongMay[1], $buoiHoc[0], $thuHoc[0], $soBuoi, $thoiGianBatDau, $ghiChu);
                 $GLOBALS['dsThoiKhoaBieu'] = $this->m_ThoiKhoaBieu->ds_thoikhoabieu();
                 $this->index();
             } else {

@@ -25,7 +25,7 @@ class m_ThoiKhoaBieu extends CI_Model{
         return $query->result_array();
     }
 
-    public function them_thoikhoabieu($maMH, $tenMH, $maGV, $tenGV, $maPM, $tenPM, $buoiHoc, $thuHoc, $soBuoi, $tgBatDau, $tgKetThuc, $ghiChu)
+    public function them_thoikhoabieu($maMH, $tenMH, $maGV, $tenGV, $maPM, $tenPM, $buoiHoc, $thuHoc, $soBuoi, $tgBatDau, $ghiChu)
     {
         $maTKB = 1;
         $ds_thoikhoabieu = $this->ds_thoikhoabieu();
@@ -37,8 +37,9 @@ class m_ThoiKhoaBieu extends CI_Model{
             }
             $maTKB++;
         }
+        $day = ($soBuoi - 1) * 7;
         $this->db->query("insert into thoi_khoa_bieu 
-        values(".$maTKB.", '".$maMH."', '".$tenMH."', ".$maGV.", '".$tenGV."', ".$maPM.", '".$tenPM."', '".$buoiHoc."', ".$thuHoc.", ".$soBuoi.", '".$tgBatDau."', '".$tgKetThuc."', '".$ghiChu."')");
+        values(".$maTKB.", '".$maMH."', '".$tenMH."', ".$maGV.", '".$tenGV."', ".$maPM.", '".$tenPM."', '".$buoiHoc."', ".$thuHoc.", ".$soBuoi.", '".$tgBatDau."', DATE_ADD('".$tgBatDau."', INTERVAL ".$day." DAY), '".$ghiChu."')");
     }
 
 }
