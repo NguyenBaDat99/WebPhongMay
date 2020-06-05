@@ -282,7 +282,13 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href= <?php echo "http://localhost/WebPhongMay/index.php/QLyNguoiDung/load_suaNguoiDung/".$this->session->userdata('MaNguoiDung');?>><i class="fas fa-user-cog"></i>&nbsp;&nbsp;Tùy chỉnh</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <?php  
+                            if($this->session->userdata('LoaiNguoiDung') != "Admin"){
+                            
+                            ?> 
+                            <a class="dropdown-item" href="http://localhost/WebPhongMay/index.php/QLyThoiKhoaBieu"><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;Thời khóa biểu cá nhân</a>
+                            <?php }
+                            ?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href=" http://localhost/WebPhongMay/index.php/login/logout"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Đăng xuất</a>
                         </div>
