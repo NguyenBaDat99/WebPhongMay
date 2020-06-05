@@ -4,7 +4,7 @@
         word-wrap: break-word;
         position: static; 
     }
-    @-webkit-keyframes my {
+    /* @-webkit-keyframes my {
        0% { color: #F8CD0A; } 
        50% { color: #fff;  } 
        100% { color: #F8CD0A;  } 
@@ -38,13 +38,14 @@
    -moz-animation: my 200ms infinite; 
    -o-animation: my 200ms infinite; 
    animation: my 200ms infinite;
-}
+} */
 .table-responsive {
   max-width:100%;
   overflow-x: auto;
 }
 .content {
-    padding-left:  18px ;
+    padding-left: 25px;
+    padding-right: 25px;
     line-height: 17px;
 }
 
@@ -58,7 +59,7 @@ td{
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<h1 style="text-align: center;" class="tkb">Thoi Khoa Bieu</h1>
+
 <div class="content" >
 
 
@@ -69,7 +70,7 @@ td{
 
         <td valign="top">
 <!--Phần thoi khoa bieu(ở bên trái)-->
-            <div   class="col-md-11" style="padding-top: 20px; float: left">
+            <div   class="col-md-12" style=" float: left">
                <table id="processTable" class="table table-bordered text-center " >
                  <thead style="background: #17A2B8;color: white" >
                     <tr>
@@ -140,7 +141,7 @@ td{
                         <td id="location-58"></td>
                     </tr>
                     <tr>
-                        <td colspan="8" title="11h50' - 13h" style="background: #7F8387">Đi ăn cơm với gấu</td>
+                        <th colspan="8" title="11h50' - 13h" style="background: #7F8387; color: white; "><h5 style="margin: opx; margin: unset;">Giải Lao</h5></th>
                     </tr>
                     <tr id="lesson6">
                         <td title="13h - 13h50'">6</td>
@@ -204,8 +205,7 @@ td{
 
 </td>
 
-<td valign="top"class="float-right" style="width: 200px" >
-  <!--Phần danh muc(ở bên  Phai)-->
+<!-- <td valign="top"class="float-right" style="width: 200px" >
   <div >
 
    <div class="list-group">
@@ -221,9 +221,7 @@ td{
   </div>
 
 </div>
-
-
-</td>
+</td> -->
 
 
 </tr>
@@ -237,7 +235,9 @@ foreach($dsThoiKhoaBieu_CaNhan as $item)
 
     $date = $item ['ThoiGianKetThuc'];
     $today = date("Y-m-d");
-    $test = rand(10,255);
+    $test = rand(50,200);
+    $test1 = rand(50,200);
+    
  
 
     if ($date >= $today) {
@@ -248,37 +248,32 @@ foreach($dsThoiKhoaBieu_CaNhan as $item)
 
      $(document).ready(function(){
 
-        $("#location-"+"<?php echo substr($item['BuoiHoc'],0,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("<?php  echo $item['TenMonHoc']; ?>" +" (<?php  echo $item['MaMonHoc']; ?>)");
-        $("#location-"+"<?php echo substr($item['BuoiHoc'],1,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("Tên phòng máy: <?php  echo $item['TenPhongMay']; ?>" );
-
-        $("#location-"+"<?php echo substr($item['BuoiHoc'],2,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("Thời gian bắt đầu: <?php  echo $item['ThoiGianBatDau']; ?>" );
-
-
-
+        $("#location-"+"<?php echo substr($item['BuoiHoc'],0,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("<?php  echo $item['TenMonHoc']; ?>" +" (<?php  echo $item['MaMonHoc']; ?>)   Tên phòng máy: <?php  echo $item['TenPhongMay']; ?>");
+        $("#location-"+"<?php echo substr($item['BuoiHoc'],1,1); ?>"+"<?php echo $item['ThuHoc'] ?>").text("Thời gian bắt đầu là: <?php   echo  $item['ThoiGianBatDau']; ?>");
     });
 
      var td1 = document.getElementById("location-"+"<?php echo substr($item['BuoiHoc'],0,1); ?>"+"<?php echo $item['ThuHoc'] ?>");
-     td1.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
-     td1.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
+     td1.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
+     td1.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
      td1.style.color = "white";
      var td2 = document.getElementById("location-"+"<?php echo substr($item['BuoiHoc'],1,1); ?>"+"<?php echo $item['ThuHoc'] ?>");
-     td2.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
-     td2.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
+     td2.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
+     td2.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
      td2.style.color = "white";
      var td3 = document.getElementById("location-"+"<?php echo substr($item['BuoiHoc'],2,1); ?>"+"<?php echo $item['ThuHoc'] ?>");
-     td3.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
-     td3.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
+     td3.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
+     td3.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
      td3.style.color = "white";
      <?php 
      if(strlen($item['BuoiHoc'])==5){
         ?>
         var td4 = document.getElementById("location-"+"<?php echo substr($item['BuoiHoc'],3,1); ?>"+"<?php echo $item['ThuHoc'] ?>");
-        td4.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
-        td4.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
+        td4.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
+        td4.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
         td4.style.color = "white";
         var td5 = document.getElementById("location-"+"<?php echo substr($item['BuoiHoc'],4,1); ?>"+"<?php echo $item['ThuHoc'] ?>");
-        td5.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
-        td5.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test;?>)";
+        td5.style.background = "rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
+        td5.style.border = " 1px solid rgb(125,<?php  echo $test;?>,<?php  echo $test1;?>)";
         td5.style.color = "white";
 
 

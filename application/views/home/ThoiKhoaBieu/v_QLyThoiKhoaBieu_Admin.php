@@ -125,7 +125,7 @@
 
 
 
-<table class="table table-striped">
+<table class="table">
     <thead>
         <tr>
             <th scope="col">Mã TKB</th>
@@ -146,24 +146,49 @@
     <tbody>
         <?php
         foreach ($dsThoiKhoaBieu as $item) {
-            echo '<tr>';
-            echo '<th>' . $item['MaThoiKhoaBieu'] . '</th>';
-            echo '<td>' . $item['MaMonHoc'] . '</td>';
-            echo '<td>' . $item['TenMonHoc'] . '</td>';
-            echo '<td>' . $item['MaGiangVien'] . '</td>';
-            echo '<td>' . $item['TenGiangVien'] . '</td>';
-            echo '<td>' . $item['MaPhongMay'] . '</td>';
-            echo '<td>' . $item['BuoiHoc'] . '</td>';
-            echo '<td>' . $item['ThuHoc'] . '</td>';
-            echo '<td>' . $item['SoBuoi'] . '</td>';
-            echo '<td>' . $item['ThoiGianBatDau'] . '</td>';
-            echo '<td>' . $item['ThoiGianKetThuc'] . '</td>';
-            echo '<td>' . $item['GhiChu'] . '</td>';
-            echo '<td> <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalXoa' . $item['MaThoiKhoaBieu'] . '">
-                          Xóa
-                        </button> 
-                    </td>';
-            echo '</tr>';
+            if($item['ThoiGianKetThuc'] < $today = date("Y-m-d"))
+            {
+                echo '<tr class="table-secondary">';
+                echo '<th>' . $item['MaThoiKhoaBieu'] . '</th>';
+                echo '<td>' . $item['MaMonHoc'] . '</td>';
+                echo '<td>' . $item['TenMonHoc'] . '</td>';
+                echo '<td>' . $item['MaGiangVien'] . '</td>';
+                echo '<td>' . $item['TenGiangVien'] . '</td>';
+                echo '<td>' . $item['MaPhongMay'] . '</td>';
+                echo '<td>' . $item['BuoiHoc'] . '</td>';
+                echo '<td>' . $item['ThuHoc'] . '</td>';
+                echo '<td>' . $item['SoBuoi'] . '</td>';
+                echo '<td>' . $item['ThoiGianBatDau'] . '</td>';
+                echo '<td>' . $item['ThoiGianKetThuc'] . '</td>';
+                echo '<td>' . $item['GhiChu'] . '</td>';
+                echo '<td> <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalXoa' . $item['MaThoiKhoaBieu'] . '">
+                              Xóa
+                            </button> 
+                        </td>';
+                echo '</tr>';
+            }
+            else
+            {
+                echo '<tr>';
+                echo '<th>' . $item['MaThoiKhoaBieu'] . '</th>';
+                echo '<td>' . $item['MaMonHoc'] . '</td>';
+                echo '<td>' . $item['TenMonHoc'] . '</td>';
+                echo '<td>' . $item['MaGiangVien'] . '</td>';
+                echo '<td>' . $item['TenGiangVien'] . '</td>';
+                echo '<td>' . $item['MaPhongMay'] . '</td>';
+                echo '<td>' . $item['BuoiHoc'] . '</td>';
+                echo '<td>' . $item['ThuHoc'] . '</td>';
+                echo '<td>' . $item['SoBuoi'] . '</td>';
+                echo '<td>' . $item['ThoiGianBatDau'] . '</td>';
+                echo '<td>' . $item['ThoiGianKetThuc'] . '</td>';
+                echo '<td>' . $item['GhiChu'] . '</td>';
+                echo '<td> <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalXoa' . $item['MaThoiKhoaBieu'] . '">
+                              Xóa
+                            </button> 
+                        </td>';
+                echo '</tr>';
+            }
+            
 
 
             echo '<div class="modal fade" id="modalXoa' . $item['MaThoiKhoaBieu'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
