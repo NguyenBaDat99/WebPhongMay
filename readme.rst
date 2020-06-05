@@ -9,9 +9,7 @@ NGÔN NGỮ: PHP FRAMEWORK CODEIGNITER
 	5.	NGUYỄN CAO TẤN
 	Phân công:
 	-	Phân tích thiết kế hệ thống: Cả nhóm.
-	
 	-	Thiết kế cơ sở dữ liệu: Đạt	
-	
 	-	Thiết kế giao diện chung: 
 			o	Trang chủ: Bắc, Thạch
 			o	Trang đăng nhập: Thành
