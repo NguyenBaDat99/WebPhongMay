@@ -105,6 +105,7 @@
             </div>
           </div>
 </form>
+</div>
 <?php
   $error = $this->session->flashdata('msg');
     if($error== true){

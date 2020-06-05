@@ -17,6 +17,18 @@
             });
         });
     </script>
-</body>
 
+<style>
+    #t{
+        background-color:#17a2b8;
+    }
+    
+</style>
+</body>
+<footer id="t" class="py-3  text-light text-center" >
+    <div class="container ">
+        <div>Copyright © 2020 QLPM. Powered by Group 10</div>
+    </div>
+</footer> 
+  
 </html>

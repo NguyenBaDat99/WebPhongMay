@@ -1,4 +1,4 @@
-<<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light">
   <a class="navbar-brand">Danh sách phòng máy</a>
   <form class="form-inline" action="http://localhost/WebPhongMay/index.php/QLyPhongMay/tim_PhongMay" method="post">
     <input class="form-control mr-sm-2" name="ttTimKiem" type="search" placeholder="Nhập thông tin" aria-label="Search" required maxlength="20">

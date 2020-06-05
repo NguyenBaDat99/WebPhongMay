@@ -12,6 +12,11 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+   <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <style>
         
@@ -163,6 +168,7 @@
             /* padding: 20px; */
             min-height: 100vh;
             transition: all 0.3s;
+
         }
 
         /* ---------------------------------------------------
@@ -181,6 +187,25 @@
             }
         }
     </style>
+    <script >
+       jQuery(document).ready(function($) {
+          $(window).load(function() {
+            if ($('.wrapper').length > 0) {
+               var _top = $('.wrapper').offset().top - parseFloat($('.wrapper').css('marginTop').replace(/auto/, 0));
+               $(window).scroll(function(evt) {
+                 var _y = $(this).scrollTop();
+                 if (_y > _top) {
+                     $('.wrapper').addClass('fixed');
+                     $('.main-1').css("margin-top", "30px")
+                 } else {
+                     $('.wrapper').removeClass('fixed');
+                     $('.main-1').css("margin-top", "0")
+                 }
+             })
+           }
+       });
+      });
+  </script>
 
 </head>
 
@@ -189,7 +214,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Web Phòng Máy</h3>
+               <a href="http://localhost/WebPhongMay/index.php/QLyPhongMay/intro"> <h4>Web Phòng Máy</h4></a>
             </div>
 
             <ul class="list-unstyled ">
@@ -203,15 +228,16 @@
                 <li>
                     <a href="http://localhost/WebPhongMay/index.php/QLyThoiKhoaBieu"><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;Quản lý thời khóa biểu</a>
                 </li>
-
                 <?php
                     if($this->session->userdata('LoaiNguoiDung') == 'Admin')
                     {?>
                 <li>
                     <a href="http://localhost/WebPhongMay/index.php/QLyNguoiDung"><i class="fas fa-users"></i>&nbsp;&nbsp;Quản lý người dùng</a>
                 </li>
-
+                 
+ 
                 <?php
+
                 }?>
                 <!-- Kiểu dropdown cho mục sidebar -->
                 <!-- <li>
@@ -229,20 +255,24 @@
                     </ul>
                 </li> -->
             </ul>
-            <!-- <ul class="list-unstyled CTAs list-unstyled components">
-                <li>
+            <ul class="list-unstyled CTAs list-unstyled components"> 
+                <!-- <li>
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
                 </li>
                 <li>
                     <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-                </li>
-            </ul> -->
+                </li> -->
+                <li><h5>&nbsp;&nbsp;Lượt truy cập: <?php echo $this->session->userdata('Luottruycap')
+                 ?></h5></li>
+            </ul> 
+            
         </nav>
+
 
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg  ">
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-bars"></i>&nbsp;
