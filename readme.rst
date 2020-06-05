@@ -14,7 +14,9 @@ Phân công:
 	-	Thiết kế cơ sở dữ liệu: Đạt	
 	-	Thiết kế giao diện chung: 
 			o	Trang chủ: Bắc, Thạch
+			
 			o	Trang đăng nhập: Thành
+			
 			o	Giao diện khung (header, footer): Đạt
 	-	Các chức năng chính của web:
 			o	Quản lý người dùng:
