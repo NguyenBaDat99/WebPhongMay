@@ -41,4 +41,12 @@ Phân công:
 					Phía Admin: Đạt
 				
 					Phía User: Thành
+				
+- Tài khoản đăng nhập:
+	- Admin: 
+		- Tên đăng nhập: admin
+		- Mật khẩu: 1234
+	- User: 
+		- Tên đăng nhập: LeThanh / HuyBac / VanThach / CaoTan
+		- Mật khẩu: 1234 / 1234 / 1234 / 1234
 
