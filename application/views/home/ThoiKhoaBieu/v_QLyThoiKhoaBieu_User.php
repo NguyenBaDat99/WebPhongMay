@@ -141,7 +141,7 @@ td{
                         <td id="location-58"></td>
                     </tr>
                     <tr>
-                        <th colspan="8" title="11h50' - 13h" style="background: #7F8387; color: white; "><h5 style="margin: opx; margin: unset;">Giải Lao</h5></th>
+                        <th colspan="8" title="11h50' - 13h" style="background: #7F8387; color: white; "><h5 style="margin: opx; margin: unset;"></h5></th>
                     </tr>
                     <tr id="lesson6">
                         <td title="13h - 13h50'">6</td>

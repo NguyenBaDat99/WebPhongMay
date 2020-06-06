@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 22, 2020 lúc 06:15 PM
+-- Thời gian đã tạo: Th6 06, 2020 lúc 09:53 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.29
 
@@ -63,7 +63,7 @@ CREATE TABLE `may_con` (
 --
 
 INSERT INTO `may_con` (`MaMayCon`, `TinhTrang`, `MaPhongMay`) VALUES
-('A1', 'Off', 1),
+('A1', 'Broken', 1),
 ('A2', 'Off', 1),
 ('A3', 'Off', 1),
 ('B1', 'Off', 2),
@@ -96,8 +96,8 @@ CREATE TABLE `mon_hoc` (
 --
 
 INSERT INTO `mon_hoc` (`MaMonHoc`, `TenMonHoc`, `NganhHoc`, `SoTinChi`, `GiangVienPhuTrach`, `TrangThai`) VALUES
-('DCHCM01', 'Tư tưởng Hồ Chí Minh', 'Đại cương', 3, 'LeThanh', 'Close'),
-('DCM01', 'Mác Lê-nin I', 'Đại cương', 3, 'LeThanh', 'Close'),
+('DCHCM01', 'Tư tưởng Hồ Chí Minh', 'Đại cương', 3, 'LeThanh', 'Open'),
+('DCM01', 'Mác Lê-nin I', 'Đại cương', 3, 'LeThanh', 'Open'),
 ('DCM02', 'Mác Lê-nin II', 'Đại cương', 4, 'LeThanh', 'Open'),
 ('FBMA1', 'Toán cao cấp A1', 'Tài chính ngân hàng', 4, 'LeBac', 'Close'),
 ('FBMA2', 'Toán cao cấp A2', 'Tài chính ngân hàng', 4, 'CaoTan', 'Open'),
@@ -129,11 +129,11 @@ CREATE TABLE `nguoi_dung` (
 --
 
 INSERT INTO `nguoi_dung` (`MaNguoiDung`, `TenNguoiDung`, `MatKhau`, `LoaiNguoiDung`) VALUES
-(1, 'NguyenDat', 'Dat123', 'Admin'),
-(2, 'LeBac', 'Bac123', 'User'),
-(3, 'VanThach', 'Thach123', 'User'),
-(4, 'LeThanh', 'Thanh123', 'User'),
-(5, 'CaoTan', 'Tan123', 'User');
+(1, 'admin', '$2y$10$9aEb26qrWGB/geWDWcO92.ws850lSusKf.JVtNHLGpLCplKJKA7tW', 'Admin'),
+(2, 'HuyBac', '$2y$10$fnInHsYv/NxHggPH.5M6y.WKZ7fKWff.jl8tRMHl4G9mVEPSx5cDy', 'User'),
+(3, 'VanThach', '$2y$10$Ks70Na8iFwFgpIEhZoTu6uiBCkDpUAwvH/c42Uz26rg/PZH7oH9LK', 'User'),
+(4, 'LeThanh', '$2y$10$4pj/SOpw2GGBwhTRhcMKz.87ftM7eD52fNRUwT4usFIGP3dAzD5fe', 'User'),
+(5, 'CaoTan', '$2y$10$TJ/C1RRbvTTRss0u31uSD.SYTbP3l4DHOh3TooyRg66gi4QHwS2f2', 'User');
 
 -- --------------------------------------------------------
 
@@ -183,8 +183,15 @@ CREATE TABLE `thoi_khoa_bieu` (
 --
 
 INSERT INTO `thoi_khoa_bieu` (`MaThoiKhoaBieu`, `MaMonHoc`, `TenMonHoc`, `MaGiangVien`, `TenGiangVien`, `MaPhongMay`, `TenPhongMay`, `BuoiHoc`, `ThuHoc`, `SoBuoi`, `ThoiGianBatDau`, `ThoiGianKetThuc`, `GhiChu`) VALUES
-(1, 'FBMA1', 'Toán cao cấp A1', 4, 'LeThanh', 1, 'PM01', 1, 2, 10, '0000-00-00', '2020-07-30', NULL),
-(2, 'ITW02', 'Lập trình web', 2, 'LeBac', 2, 'PM02', 2, 7, 9, '2020-05-22', '2020-07-30', NULL);
+(1, 'DCHCM01', 'Tư tưởng Hồ Chí Minh', 4, 'LeThanh', 4, 'PM04', 12, 7, 7, '2020-06-05', '2020-07-17', ''),
+(2, 'DCHCM01', 'Tư tưởng Hồ Chí Minh', 4, 'LeThanh', 2, 'PM02', 12345, 4, 8, '2020-06-05', '2020-07-24', ''),
+(3, 'DCM02', 'Mác Lê-nin II', 1, 'NguyenDat', 2, 'PM02', 12345, 2, 5, '2020-02-02', '2020-07-30', ''),
+(4, 'DCM01', 'Mác Lê-nin I', 4, 'LeThanh', 1, 'PM01', 345, 2, 6, '2020-06-05', '2020-07-10', ''),
+(5, 'DCM02', 'Mác Lê-nin II', 4, 'LeThanh', 3, 'PM03', 890, 5, 4, '2020-06-05', '2020-06-26', ''),
+(6, 'DCHCM01', 'Tư tưởng Hồ Chí Minh', 4, 'LeThanh', 1, 'PM01', 890, 6, 7, '2020-06-05', '2020-07-17', ''),
+(7, 'DCHCM01', 'Tư tưởng Hồ Chí Minh', 4, 'LeThanh', 1, 'PM01', 12345, 6, 4, '2020-06-05', '2020-06-26', ''),
+(15, 'DCM02', 'Mác Lê-nin II', 4, 'LeThanh', 3, 'PM03', 890, 3, 2, '2020-06-24', '2020-07-01', ''),
+(16, 'ITM01', 'Mạng máy tính cơ sở', 2, 'LeBac', 1, 'PM01', 12345, 7, 2, '2020-11-01', '2020-11-08', '');
 
 --
 -- Chỉ mục cho các bảng đã đổ
